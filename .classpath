@@ -8,9 +8,9 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/jcalendar-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="lib/JTattoo-1.6.11.jar"/>
 	<classpathentry kind="lib" path="lib/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="lib/jfreechart-1.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/swingx-all-1.6.4.jar"/>
+	<classpathentry kind="lib" path="lib/JTattoo-1.6.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
