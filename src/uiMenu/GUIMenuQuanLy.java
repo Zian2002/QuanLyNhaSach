@@ -30,10 +30,28 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import entity.NhanVien;
+import uiQuanLy.GUIBaoCaoNgay;
+import uiQuanLy.GUIBaoCaoThang;
+import uiQuanLy.GUIDanhSachDonDatHang;
+import uiQuanLy.GUIDanhSachHoaDon;
+import uiQuanLy.GUIDanhSachSach;
+import uiQuanLy.GUIDanhSachVPP;
 import uiQuanLy.GUILapHoaDon;
 import uiQuanLy.GUIQuanLyKhachHang;
+import uiQuanLy.GUIQuanLyNhaCungCap;
+import uiQuanLy.GUIQuanLyNhanVien;
+import uiQuanLy.GUIQuanLySach;
+import uiQuanLy.GUIQuanLyVPP;
 import uiQuanLy.GUIThemDonDatHang;
+import uiQuanLy.GUIThongKeDoanhThu;
+import uiQuanLy.GUIThongKeSanPham;
 import uiTimKiem.FormTimKiemDonDatHang;
+import uiTimKiem.FormTimKiemHoaDon;
+import uiTimKiem.FormTimKiemKhachHang;
+import uiTimKiem.FormTimKiemNhaCungCap;
+import uiTimKiem.FormTimKiemNhanVien;
+import uiTimKiem.FormTimKiemSach;
+import uiTimKiem.FormTimKiemVPP;
 
 
 public class GUIMenuQuanLy extends JFrame implements ActionListener {
@@ -329,7 +347,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		Object object = e.getSource();
 		if (object.equals(meimDoiMatKhau)) {
-			
+			new GUIDoiMatKhau().setVisible(true);
 		}
 		else if (object.equals(meimDangXuat)) {
 			
@@ -341,67 +359,67 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 			showPanel(new GUILapHoaDon());
 		}
 		else if (object.equals(meimDanhSachHoaDon)) {
-			
+			showPanel(new GUIDanhSachHoaDon());
 		}
 		else if (object.equals(meimTimKiemHoaDon)) {
-			
+			new FormTimKiemHoaDon().setVisible(true);
 		}
 		else if (object.equals(meimThemDonDatHang)) {
 			showPanel(new GUIThemDonDatHang());
 		}
 		else if (object.equals(meimDanhSachDonDatHang)) {
-			
+			showPanel(new GUIDanhSachDonDatHang());
 		}
 		else if (object.equals(meimTimKiemDonDatHang)) {
-			
+			new FormTimKiemDonDatHang().setVisible(true);
 		}
 		else if (object.equals(meimDanhSachSach)) {
-			
+			showPanel(new GUIDanhSachSach());
 		}
 		else if (object.equals(meimCapNhatSach)) {
-			
+			showPanel(new GUIQuanLySach());
 		}
 		else if (object.equals(meimTimKiemSach)) {
-			
+			new FormTimKiemSach().setVisible(true);
 		}
 		else if (object.equals(meimDanhSachVPP)) {
-			
+			showPanel(new GUIDanhSachVPP());
 		}
 		else if (object.equals(meimCapNhatVPP)) {
-			
+			showPanel(new GUIQuanLyVPP());
 		}
 		else if (object.equals(meimTimKiemVPP)) {
-			
+			new FormTimKiemVPP().setVisible(true);
 		}
 		else if (object.equals(meimCapNhatKhachHang)) {
 			showPanel(new GUIQuanLyKhachHang());
 		}
 		else if (object.equals(meimTimKiemKhachHang)) {
-			
+			new FormTimKiemKhachHang().setVisible(true);
 		}
 		else if (object.equals(meimCapNhatNhanVien)) {
-			
+			showPanel(new GUIQuanLyNhanVien());
 		}
 		else if (object.equals(meimTimKiemNhanVien)) {
-			
+			new FormTimKiemNhanVien().setVisible(true);
 		}
 		else if (object.equals(meimCapNhatNCC)) {
-			
+			showPanel(new GUIQuanLyNhaCungCap());
 		}
 		else if (object.equals(meimTimKiemNCC)) {
-			
+			new FormTimKiemNhaCungCap().setVisible(true);
 		}
 		else if (object.equals(meimThongKeDoanhThu)) {
-			
+			showPanel(new GUIThongKeDoanhThu());
 		}
 		else if (object.equals(meimThongKeSanPham)) {
-			
+			showPanel(new GUIThongKeSanPham());
 		}
 		else if (object.equals(meimBaoCaoNgay)) {
-			
+			showPanel(new GUIBaoCaoNgay());
 		}
 		else if (object.equals(meimBaoCaoThang)) {
-			
+			showPanel(new GUIBaoCaoThang());
 		}
 	}
 	
