@@ -94,7 +94,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setResizable(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\justi\\Downloads\\logo.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./image/logo.png"));
 		
 		Box bc, b1, b2, b3;
 		bc = Box.createVerticalBox();
