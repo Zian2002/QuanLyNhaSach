@@ -536,7 +536,7 @@ public class GUILapHoaDon extends javax.swing.JPanel {
         btnXoaSP.setIcon(new ImageIcon("./image/xoa.png"));
         btnThanhToan.setIcon(new ImageIcon("./image/tien.png"));
         btnXuatHoaDon.setIcon(new ImageIcon("./image/in.png"));
-        btnHuyHoaDon.setIcon(new ImageIcon("./image/xoa.png"));
+        btnHuyHoaDon.setIcon(new ImageIcon("./image/huy.png"));
         
         
         

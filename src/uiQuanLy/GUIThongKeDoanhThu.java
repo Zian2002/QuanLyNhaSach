@@ -1,5 +1,7 @@
 package uiQuanLy;
 
-public class GUIThongKeDoanhThu {
+import javax.swing.JPanel;
+
+public class GUIThongKeDoanhThu extends JPanel{
 
 }

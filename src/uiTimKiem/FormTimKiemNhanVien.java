@@ -1,5 +1,7 @@
 package uiTimKiem;
 
-public class FormTimKiemNhanVien {
+import javax.swing.JFrame;
+
+public class FormTimKiemNhanVien extends JFrame{
 
 }

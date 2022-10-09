@@ -1,5 +1,7 @@
 package uiQuanLy;
 
-public class GUIQuanLyVPP {
+import javax.swing.JPanel;
+
+public class GUIQuanLyVPP extends JPanel{
 
 }

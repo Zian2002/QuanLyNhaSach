@@ -1,5 +1,7 @@
 package uiMenu;
 
-public class GUIDoiMatKhau {
+import javax.swing.JFrame;
+
+public class GUIDoiMatKhau extends JFrame{
 
 }

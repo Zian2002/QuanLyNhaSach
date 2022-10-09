@@ -1,5 +1,7 @@
 package uiQuanLy;
 
-public class GUIQuanLyNhaCungCap {
+import javax.swing.JPanel;
+
+public class GUIQuanLyNhaCungCap extends JPanel{
 
 }

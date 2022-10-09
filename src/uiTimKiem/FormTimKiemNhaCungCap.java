@@ -1,5 +1,7 @@
 package uiTimKiem;
 
-public class FormTimKiemNhaCungCap {
+import javax.swing.JFrame;
+
+public class FormTimKiemNhaCungCap extends JFrame{
 
 }
