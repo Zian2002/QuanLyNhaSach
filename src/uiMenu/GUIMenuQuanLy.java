@@ -94,7 +94,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setResizable(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(""));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\justi\\Downloads\\logo.jpg"));
 		
 		Box bc, b1, b2, b3;
 		bc = Box.createVerticalBox();
@@ -240,10 +240,10 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		bc.add(b1 = Box.createHorizontalBox());
 			b1.add(Box.createHorizontalStrut(width-1420));
 			b1.add(b2 = Box.createVerticalBox());
-			b2.add(Box.createVerticalStrut(20));
+			b2.add(Box.createVerticalStrut(10));
 			b2.add(b3 = Box.createHorizontalBox());
 			b3.add(lbSVTH = new JLabel("Sinh viên thực hiện"));
-			b2.add(Box.createVerticalStrut(10));
+			b2.add(Box.createVerticalStrut(5));
 			b2.add(b3 = Box.createHorizontalBox());
 			
 			b3.add(Box.createHorizontalStrut(20));
@@ -268,7 +268,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 			b3.add(lbMaThinh = new JLabel("20006611"));
 			b3.add(Box.createHorizontalStrut(20));
 			
-			b2.add(Box.createVerticalStrut(20));
+			b2.add(Box.createVerticalStrut(10));
 			b1.add(Box.createHorizontalStrut(width-1420));
 			b1.setBackground(new Color(201,218,218));
 			b1.setOpaque(true);
