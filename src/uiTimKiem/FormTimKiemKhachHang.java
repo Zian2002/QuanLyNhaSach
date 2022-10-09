@@ -1,4 +1,4 @@
-
+ 
 package uiTimKiem;
 
 /**
@@ -12,6 +12,8 @@ public class FormTimKiemKhachHang extends javax.swing.JFrame {
      */
     public FormTimKiemKhachHang() {
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
