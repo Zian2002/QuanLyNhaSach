@@ -47,7 +47,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
         pnlCTHD = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCTHD = new javax.swing.JTable();
-        btnInHoaDon = new javax.swing.JButton();
+        btnXuatHoaDon = new javax.swing.JButton();
         lbTitle = new javax.swing.JLabel();
         btnTimKiem = new javax.swing.JButton();
 
@@ -138,7 +138,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
         );
 
-        btnInHoaDon.setText("In hóa đơn");
+        btnXuatHoaDon.setText("Xuất hóa đơn");
 
         javax.swing.GroupLayout pnlThongTinHDLayout = new javax.swing.GroupLayout(pnlThongTinHD);
         pnlThongTinHD.setLayout(pnlThongTinHDLayout);
@@ -174,7 +174,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlThongTinHDLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnInHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnXuatHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(195, 195, 195))
         );
         pnlThongTinHDLayout.setVerticalGroup(
@@ -201,7 +201,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlCTHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(btnInHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(btnXuatHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -267,7 +267,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton btnInHoaDon;
+    private javax.swing.JButton btnXuatHoaDon;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
