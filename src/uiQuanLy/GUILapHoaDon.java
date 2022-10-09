@@ -545,7 +545,7 @@ public class GUILapHoaDon extends javax.swing.JPanel {
 //        		.createLineBorder(new Color(251,203,89)) ,"Thông tin khách hàng"));
 //        pnTTHoaDon.setBorder(BorderFactory.createTitledBorder(BorderFactory
 //        		.createLineBorder(new Color(251,203,89)) ,"Thông tin hóa đơn"));
-        Object row[] = {1, "1001", "Sach tum lum", "loai", "dvt", "100000", 2, 200000};
+        Object row[] = {1, "1001", "Sach giao khoa", "loai", "dvt", "100000", 2, 200000};
         modelMuaHang.addRow(row);
         modelMuaHang.addRow(row);
         modelMuaHang.addRow(row);
