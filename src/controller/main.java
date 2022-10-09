@@ -24,8 +24,6 @@ public class main{
 	public static void main(String[] args) {
 		
 		try {
-			//sync ui
-			// them domng
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
