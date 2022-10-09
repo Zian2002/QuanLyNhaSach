@@ -25,6 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
@@ -350,10 +351,15 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 			new GUIDoiMatKhau().setVisible(true);
 		}
 		else if (object.equals(meimDangXuat)) {
-			
+			pnMain.removeAll();
+			new GUIDangNhap().setVisible(true);
+			childPanel.disable();
+			dispose();
 		}
 		else if (object.equals(meimThoat)) {
-			
+			if (JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn thoát?", "Cảnh Báo",
+					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+				System.exit(0);
 		}
 		else if (object.equals(meimLapHoaDon)) {
 			showPanel(new GUILapHoaDon());
