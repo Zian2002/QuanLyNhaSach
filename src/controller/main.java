@@ -1,27 +1,29 @@
 package controller;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
-import com.toedter.calendar.JDateChooser;
-
+import dao.DAOKhachHang;
+import dao.DAOSanPham;
+import database.ConnectDB;
+import entity.ChucVu;
+import entity.KhachHang;
 import entity.NhanVien;
+import entity.SanPham;
 import uiMenu.GUIMenuQuanLy;
 
 public class main{
 	public static void main(String[] args) {
+		
+		try {
+			ConnectDB.getInstance().connect();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		try {
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
@@ -36,11 +38,18 @@ public class main{
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
 //			UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
-			UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
-			new GUIMenuQuanLy(new NhanVien()).setVisible(true);
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
+			
+			
+			NhanVien nhanVien = new NhanVien("20022361", "Bùi Nhựt Duy", "6453245678", LocalDate.now(), true, "1000", "Bến Tre", LocalDate.now(), new ChucVu());
+			new GUIMenuQuanLy(nhanVien).setVisible(true);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		};
+		
+		
 
+		
 	}
 }

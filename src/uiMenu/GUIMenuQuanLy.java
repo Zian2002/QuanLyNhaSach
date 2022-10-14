@@ -12,7 +12,9 @@ import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -30,6 +32,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
+import database.ConnectDB;
+import entity.ChucVu;
+import entity.KhachHang;
 import entity.NhanVien;
 import uiQuanLy.GUIBaoCaoNgay;
 import uiQuanLy.GUIBaoCaoThang;
@@ -79,6 +84,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 	public NhanVien nhanVien;
 	JPanel pnMain = new JPanel();
 	private JPanel childPanel;
+	
 	
 	public GUIMenuQuanLy(NhanVien nhanVien) {
 		this.nhanVien = nhanVien;
@@ -180,7 +186,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		meimDanhSachSach = new JMenuItem("Danh sách sách", new ImageIcon("./image/danhsach.png"));
 		meimCapNhatSach = new JMenuItem("Cập nhật sách", new ImageIcon("./image/lammoi.png"));
 		meimTimKiemSach = new JMenuItem("Tìm kiếm sách", new ImageIcon("./image/timkiem.png"));
-		menuSach.add(meimDanhSachSach);
+//		menuSach.add(meimDanhSachSach);
 		menuSach.add(meimCapNhatSach);
 		menuSach.add(meimTimKiemSach);
 		
@@ -188,7 +194,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		meimDanhSachVPP = new JMenuItem("Danh sách văn phòng phẩm", new ImageIcon("./image/danhsach.png"));
 		meimCapNhatVPP = new JMenuItem("Cập nhật văn phòng phẩm", new ImageIcon("./image/lammoi.png"));
 		meimTimKiemVPP = new JMenuItem("Tìm kiếm văn phòng phẩm", new ImageIcon("./image/timkiem.png"));
-		menuVPP.add(meimDanhSachVPP);
+//		menuVPP.add(meimDanhSachVPP);
 		menuVPP.add(meimCapNhatVPP);
 		menuVPP.add(meimTimKiemVPP);
 		
@@ -331,7 +337,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		meimBaoCaoNgay.addActionListener(this);
 		meimBaoCaoThang.addActionListener(this);
 				
-		showPanel(new GUILapHoaDon());
+		showPanel(new GUILapHoaDon(nhanVien));
 	}
 
 	public void showPanel(JPanel panel) {
@@ -358,17 +364,24 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		}
 		else if (object.equals(meimThoat)) {
 			if (JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn thoát?", "Cảnh Báo",
-					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+				ConnectDB.getInstance().disconnect();
 				System.exit(0);
+				
+			}
 		}
 		else if (object.equals(meimLapHoaDon)) {
-			showPanel(new GUILapHoaDon());
+			KhachHang khachHang = new KhachHang("11111", "Luong Viết Thanh", "09098767654", LocalDate.now(), true, "Bac Lieu");
+			showPanel(new GUILapHoaDon(nhanVien, khachHang));
 		}
 		else if (object.equals(meimDanhSachHoaDon)) {
 			showPanel(new GUIDanhSachHoaDon());
 		}
 		else if (object.equals(meimTimKiemHoaDon)) {
-			new FormTimKiemHoaDon().setVisible(true);
+//			new FormTimKiemHoaDon().setVisible(true);
+			JOptionPane.showConfirmDialog(null, new FormTimKiemHoaDon(), "Tìm Kiếm Khách Hàng",
+					JOptionPane.OK_CANCEL_OPTION, 
+					JOptionPane.PLAIN_MESSAGE);
 		}
 		else if (object.equals(meimThemDonDatHang)) {
 			showPanel(new GUIThemDonDatHang());

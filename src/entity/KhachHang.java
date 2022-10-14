@@ -1,5 +1,66 @@
 package entity;
 
-public class KhachHang {
+import java.time.LocalDate;
 
+public class KhachHang {
+	private String maKH;
+	private String tenKH;
+	private String sDT;
+	private LocalDate ngaySinh;
+	private boolean gioiTinh;
+	private String diaChi;
+	public KhachHang() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public KhachHang(String maKH, String tenKH, String sDT, LocalDate ngaySinh, boolean gioiTinh, String diaChi) {
+		super();
+		this.maKH = maKH;
+		this.tenKH = tenKH;
+		this.sDT = sDT;
+		this.ngaySinh = ngaySinh;
+		this.gioiTinh = gioiTinh;
+		this.diaChi = diaChi;
+	}
+	public String getMaKH() {
+		return maKH;
+	}
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
+	}
+	public String getTenKH() {
+		return tenKH;
+	}
+	public void setTenKH(String tenKH) {
+		this.tenKH = tenKH;
+	}
+	public String getsDT() {
+		return sDT;
+	}
+	public void setsDT(String sDT) {
+		this.sDT = sDT;
+	}
+	public LocalDate getNgaySinh() {
+		return ngaySinh;
+	}
+	public void setNgaySinh(LocalDate ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+	public boolean isGioiTinh() {
+		return gioiTinh;
+	}
+	public void setGioiTinh(boolean gioiTinh) {
+		this.gioiTinh = gioiTinh;
+	}
+	public String getDiaChi() {
+		return diaChi;
+	}
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+	@Override
+	public String toString() {
+		return maKH + " - " + tenKH;
+	}
+	
 }

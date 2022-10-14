@@ -8,15 +8,15 @@ package uiTimKiem;
  *
  * @author DuyBui
  */
-public class FormTimKiemHoaDon extends javax.swing.JFrame {
+public class FormTimKiemHoaDon extends javax.swing.JPanel {
 
     /**
      * Creates new form FormTimKiemHoaDon
      */
     public FormTimKiemHoaDon() {
         initComponents();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+//        setLocationRelativeTo(null);
+//        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -39,7 +39,7 @@ public class FormTimKiemHoaDon extends javax.swing.JFrame {
         jdcNgayLap = new com.toedter.calendar.JDateChooser();
         btnTimKiem = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+//        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbTitle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(0, 0, 255));
@@ -68,8 +68,8 @@ public class FormTimKiemHoaDon extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+       this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -121,7 +121,7 @@ public class FormTimKiemHoaDon extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pack();
+//        pack();
     }// </editor-fold>                        
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {                                           
