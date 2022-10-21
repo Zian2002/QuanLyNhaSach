@@ -8,6 +8,15 @@ public class VanPhongPham extends SanPham{
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+	public VanPhongPham(String maSP, String tenSP, LoaiSanPham loaiSP, DonViTinh donViTinh) {
+		super(maSP, tenSP, loaiSP, donViTinh);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public VanPhongPham(String maSP, String tenSP, LoaiSanPham loaiSP, DonViTinh donViTinh, double giaNhap,
 			double giaBan, int soLuongCon, NhaCungCap nhaCungCap, NhaSanXuat nhaSanXuat) {
 		super(maSP, tenSP, loaiSP, donViTinh, giaNhap, giaBan, soLuongCon, nhaCungCap);

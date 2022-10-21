@@ -13,6 +13,7 @@ public class DonDatHang {
 	public DonDatHang() {
 		super();
 		// TODO Auto-generated constructor stub
+		this.dSCTDonDatHang = new ArrayList<ChiTietDonDatHang>();
 	}
 	public DonDatHang(String maDDH, KhachHang khachHang, LocalDateTime ngayDat, int trangThaiDonHang) {
 		super();
@@ -20,6 +21,7 @@ public class DonDatHang {
 		this.khachHang = khachHang;
 		this.ngayDat = ngayDat;
 		this.trangThaiDonHang = trangThaiDonHang;
+		this.dSCTDonDatHang = new ArrayList<ChiTietDonDatHang>();
 	}
 	public String getMaDDH() {
 		return maDDH;
@@ -62,10 +64,43 @@ public class DonDatHang {
 		this.trangThaiDonHang = trangThaiDonHang;
 		this.dSCTDonDatHang = dSCTDonDatHang;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "DonDatHang [maDDH=" + maDDH + ", khachHang=" + khachHang + ", ngayDat=" + ngayDat
-				+ ", trangThaiDonHang=" + trangThaiDonHang + "]";
+				+ ", trangThaiDonHang=" + trangThaiDonHang + ", dSCTDonDatHang=" + dSCTDonDatHang + "]";
+	}
+	public ArrayList<ChiTietHoaDon> convertToCTHDList() {
+		ArrayList<ChiTietHoaDon> dsCTHD = new ArrayList<ChiTietHoaDon>();
+		for (ChiTietDonDatHang chiTietDonDatHang : dSCTDonDatHang) {
+			dsCTHD.add(chiTietDonDatHang.convertToCTHD());
+		}
+		return dsCTHD;
+	}
+	public void addCTHD(ChiTietDonDatHang chiTietDonDatHang) {
+		for (ChiTietDonDatHang cthd : dSCTDonDatHang) {
+			if (cthd.equals(chiTietDonDatHang)) {
+				cthd.setSoLuong(cthd.getSoLuong() + chiTietDonDatHang.getSoLuong());
+				return;
+			}
+		}
+		dSCTDonDatHang.add(chiTietDonDatHang);
 	}
 	
+	public int getTongSoLuong() {
+		int soLuong = 0;
+		for (ChiTietDonDatHang chiTietHoaDon : dSCTDonDatHang) {
+			soLuong += chiTietHoaDon.getSoLuong();
+		}
+		return soLuong;
+	}
+	
+	public double getTongThanhTien() {
+		double thanhTien = 0;
+		for (ChiTietDonDatHang chiTietHoaDon : dSCTDonDatHang) {
+			thanhTien += chiTietHoaDon.getThanhTien();
+		}
+		return thanhTien;
+	}
 }

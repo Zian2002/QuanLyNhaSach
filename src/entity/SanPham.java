@@ -13,6 +13,15 @@ public abstract class SanPham {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public SanPham(String maSP, String tenSP, LoaiSanPham loaiSP, DonViTinh donViTinh) {
+		super();
+		this.maSP = maSP;
+		this.tenSP = tenSP;
+		this.loaiSP = loaiSP;
+		this.donViTinh = donViTinh;
+	}
+
 	public SanPham(String maSP, String tenSP, LoaiSanPham loaiSP, DonViTinh donViTinh, double giaNhap, double giaBan,
 			int soLuongCon, NhaCungCap nhaCungCap) {
 		super();
@@ -77,5 +86,18 @@ public abstract class SanPham {
 	public String toString() {
 		return maSP + " - " + tenSP;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof SanPham))
+			return false;
+		return ((SanPham)obj).getMaSP().equals(this.getMaSP());
+	}
+
+
 	
 }

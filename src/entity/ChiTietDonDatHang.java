@@ -40,5 +40,21 @@ public class ChiTietDonDatHang {
 	public String toString() {
 		return "ChiTietDonDatHang [sanPham=" + sanPham + ", soLuong=" + soLuong + "]";
 	}
+	public double getThanhTien() {
+		return soLuong * donGia;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ChiTietDonDatHang))
+			return false;
+		return ((ChiTietDonDatHang)obj).getSanPham().equals(this.getSanPham());
+	}
 	
+	public ChiTietHoaDon convertToCTHD() {
+		return new ChiTietHoaDon(sanPham, donGia, soLuong);
+	}
 }

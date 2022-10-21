@@ -18,6 +18,13 @@ public class NhanVien {
 		// TODO Auto-generated constructor stub
 		this.taiKhoan = new TaiKhoan(maNV, "1111", 1);
 	}
+	
+	public NhanVien(String maNV, String tenNV) {
+		super();
+		this.maNV = maNV;
+		this.tenNV = tenNV;
+	}
+
 	public NhanVien(String maNV, String tenNV, String cMND, LocalDate ngaySinh, boolean gioiTinh, String sDT, String diaChi,
 			LocalDate ngayVaoLam, ChucVu chucVu) {
 		super();

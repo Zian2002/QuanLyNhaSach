@@ -82,8 +82,8 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 
 	JLabel lbNhanVien, lbNgayHienTai;
 	public NhanVien nhanVien;
-	JPanel pnMain = new JPanel();
-	private JPanel childPanel;
+	public static JPanel pnMain = new JPanel();
+	public static JPanel childPanel;
 	
 	
 	public GUIMenuQuanLy(NhanVien nhanVien) {
@@ -338,15 +338,17 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		meimBaoCaoThang.addActionListener(this);
 				
 		showPanel(new GUILapHoaDon(nhanVien));
+		
 	}
 
-	public void showPanel(JPanel panel) {
+	public static void showPanel(JPanel panel) {
 		childPanel = panel;
 		pnMain.removeAll();
 		pnMain.add(childPanel);
 		pnMain.validate();
 	}
 
+	
 	
 	
 	@Override
