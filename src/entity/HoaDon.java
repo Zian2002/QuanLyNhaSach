@@ -12,7 +12,18 @@ public class HoaDon {
 	public HoaDon() {
 		super();
 		// TODO Auto-generated constructor stub
+		dSCTHoaDon = new ArrayList<ChiTietHoaDon>();
 	}
+	
+	public HoaDon(String maHD, NhanVien nhanVien, KhachHang khachHang, LocalDateTime thoiGianLap) {
+		super();
+		this.maHD = maHD;
+		this.nhanVien = nhanVien;
+		this.khachHang = khachHang;
+		this.thoiGianLap = thoiGianLap;
+		dSCTHoaDon = new ArrayList<ChiTietHoaDon>();
+	}
+
 	public HoaDon(String maHD, NhanVien nhanVien, KhachHang khachHang, LocalDateTime thoiGianLap,
 			ArrayList<ChiTietHoaDon> dSCTHoaDon) {
 		super();
@@ -57,5 +68,32 @@ public class HoaDon {
 	public void setdSCTHoaDon(ArrayList<ChiTietHoaDon> dSCTHoaDon) {
 		this.dSCTHoaDon = dSCTHoaDon;
 	}
+	
+	public void addCTHD(ChiTietHoaDon chiTietHoaDon) {
+		for (ChiTietHoaDon cthd : dSCTHoaDon) {
+			if (cthd.equals(chiTietHoaDon)) {
+				cthd.setSoLuong(cthd.getSoLuong() + chiTietHoaDon.getSoLuong());
+				return;
+			}
+		}
+		dSCTHoaDon.add(chiTietHoaDon);
+	}
+	
+	public int getTongSoLuong() {
+		int soLuong = 0;
+		for (ChiTietHoaDon chiTietHoaDon : dSCTHoaDon) {
+			soLuong += chiTietHoaDon.getSoLuong();
+		}
+		return soLuong;
+	}
+	
+	public double getTongThanhTien() {
+		double thanhTien = 0;
+		for (ChiTietHoaDon chiTietHoaDon : dSCTHoaDon) {
+			thanhTien += chiTietHoaDon.getThanhTien();
+		}
+		return thanhTien;
+	}
+	
 	
 }

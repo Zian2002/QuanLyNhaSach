@@ -1,4 +1,20 @@
 ﻿-- Danh sách sáchư
+use QuanLyNhaSach
+select * from DonViTinh
+select * from LoaiSanPham
+select * from NhaCungCap
+select * from NhaSanXuat
+select * from NhaXuatBan
+select * from TacGia
+select * from SanPham
+select * from NhanVien
+select * from KhachHang
+select * from TaiKhoan
+select * from HoaDon
+select * from ChiTietHoaDon
+select * from DonDatHang
+select * from ChiTietDonDatHang
+
 
 use QuanLyNhaSach
 select sp.maSP, sp.tenSP, lsp.maLoai, lsp.tenLoai, dvt.maDVT, dvt.tenDVT, sp.giaNhap, sp.giaBan, 

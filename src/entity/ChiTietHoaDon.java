@@ -37,4 +37,19 @@ public class ChiTietHoaDon {
 		return "ChiTietHoaDon [sanPham=" + sanPham + ", soLuong=" + soLuong + "]";
 	}
 	
+	public double getThanhTien() {
+		return soLuong * donGia;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ChiTietHoaDon))
+			return false;
+		return ((ChiTietHoaDon)obj).getSanPham().equals(this.getSanPham());
+	}
+	
+	
 }

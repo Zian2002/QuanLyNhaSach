@@ -79,11 +79,10 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 	JMenuItem meimCapNhatNCC , meimTimKiemNCC; //NCC
 	JMenuItem meimThongKeSanPham, meimThongKeDoanhThu; //Thống kê
 	JMenuItem meimBaoCaoNgay, meimBaoCaoThang;//Báo cáo
-
 	JLabel lbNhanVien, lbNgayHienTai;
-	public NhanVien nhanVien;
-	JPanel pnMain = new JPanel();
-	private JPanel childPanel;
+	public static NhanVien nhanVien;
+	public static JPanel pnMain = new JPanel();
+	public static JPanel childPanel;
 	
 	
 	public GUIMenuQuanLy(NhanVien nhanVien) {
@@ -338,9 +337,10 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 		meimBaoCaoThang.addActionListener(this);
 				
 		showPanel(new GUILapHoaDon(nhanVien));
+		
 	}
 
-	public void showPanel(JPanel panel) {
+	public static void showPanel(JPanel panel) {
 		childPanel = panel;
 		pnMain.removeAll();
 		pnMain.add(childPanel);
@@ -349,6 +349,15 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 
 	
 	
+	
+	public static NhanVien getNhanVien() {
+		return nhanVien;
+	}
+
+	public void setNhanVien(NhanVien nhanVien) {
+		this.nhanVien = nhanVien;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -387,7 +396,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 			showPanel(new GUIThemDonDatHang());
 		}
 		else if (object.equals(meimDanhSachDonDatHang)) {
-			showPanel(new GUIDanhSachDonDatHang());
+			showPanel(new GUIDanhSachDonDatHang(this));
 		}
 		else if (object.equals(meimTimKiemDonDatHang)) {
 			new FormTimKiemDonDatHang().setVisible(true);

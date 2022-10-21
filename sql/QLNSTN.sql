@@ -1,7 +1,7 @@
-﻿create database QuanLyNhaSach
+﻿create database test1010
 go
 
-use QuanLyNhaSach
+use test1010
 go
 
 --YYMMDDxxxx
@@ -13,7 +13,7 @@ begin
 	set @id = CONVERT(varchar,@date ,12)
 
 	declare @count int
-	select @count = count(maHD) from HoaDon2 where convert(varchar, ngayLap, 23) = convert(varchar, @date, 23)
+	select @count = count(maHD) from HoaDon where convert(varchar, thoiGianLap, 23) = convert(varchar, @date, 23)
 	set @count += 1
 	while len(@id) < (10 - len(CONVERT(varchar, @count)))
 	begin
@@ -491,9 +491,36 @@ insert into SanPham (maSP, tenSP, maLoai, maDVT, giaNhap, giaBan, soLuongCon, ma
 (dbo.auto_SanPhamID(1), N'1000 câu hỏi vì sao', '1008', 1, 180000, 200000, 198, '99000009', 4, 173, 2002, 10),
 (dbo.auto_SanPhamID(1), N'Top những câu hỏi hack não', '1008', 1, 234000, 250000, 164, '99000010', 1, 235, 2002, 1)
 
+insert into HoaDon values
+(dbo.auto_HoaDonID('2022-10-14'), '20020001', '22000006' , '2022-10-14'),
+(dbo.auto_HoaDonID('2022-10-14'), '21020001', '22000009' , '2022-10-14')
 
+insert into ChiTietHoaDon values
+('2210140001', '100007', 20000, 5),
+('2210140001', '200003', 30000, 3),
+('2210140001', '200005', 10000, 2),
+('2210140001', '100001', 15000, 1)
 
+insert into ChiTietHoaDon values
+('2210140002', '100009', 20000, 4),
+('2210140002', '200001', 5000, 10),
+('2210140002', '200007', 20000, 5),
+('2210140002', '100001', 15000, 1)
 
+insert into DonDatHang values
+(dbo.auto_DonDatHangID('0165834894'), '22000009', getdate(), 0),
+(dbo.auto_DonDatHangID('0124012038'), '22000014', getdate(), 0)
+
+insert into ChiTietDonDatHang values
+('20380001', '100009', 20000, 4),
+('20380001', '200001', 5000, 10),
+('20380001', '200007', 20000, 5),
+('20380001', '100001', 15000, 1),
+('48940001', '200003', 30000, 3),
+('48940001', '200005', 10000, 2),
+('48940001', '100001', 15000, 1)
+
+use QuanLyNhaSach
 select * from DonViTinh
 select * from LoaiSanPham
 select * from NhaCungCap
@@ -508,5 +535,3 @@ select * from HoaDon
 select * from ChiTietHoaDon
 select * from DonDatHang
 select * from ChiTietDonDatHang
-
-
