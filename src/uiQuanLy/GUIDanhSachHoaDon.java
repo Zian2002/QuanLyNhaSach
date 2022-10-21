@@ -8,8 +8,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -36,15 +38,14 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
     	initComponents();
         daoHoaDon = new DAOHoaDon();
         tableClickAction();
-        
     }
     
     private void loadData() {
     	dsHoaDon = daoHoaDon.getDSHoaDon();
     	for (HoaDon hoaDon : dsHoaDon) {
 			Object row[] = {tblDanhSachHD.getRowCount()+1, hoaDon.getMaHD(), hoaDon.getNhanVien().getTenNV(),
-					hoaDon.getKhachHang().getTenKH(), hoaDon.getThoiGianLap().toString(), hoaDon.getTongSoLuong(),
-					hoaDon.getTongThanhTien(), hoaDon.getdSCTHoaDon()};
+					hoaDon.getKhachHang().getTenKH(), hoaDon.getThoiGianLap().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), 
+					hoaDon.getTongSoLuong(), hoaDon.getTongThanhTien(), hoaDon.getdSCTHoaDon()};
 			modeltblDanhSachHD.addRow(row);
 		}
     }
@@ -85,7 +86,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
 				txtMaHD.setText(hoaDon.getMaHD());
 				txtTenNV.setText(hoaDon.getNhanVien().getTenNV());
 				txtTenKH.setText(hoaDon.getKhachHang().getTenKH());
-				txtNgayLap.setText(hoaDon.getThoiGianLap().toString());
+				txtNgayLap.setText(hoaDon.getThoiGianLap().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 				txtTongSL.setText(hoaDon.getTongSoLuong()+"");
 				txtTongThanhTien.setText(hoaDon.getTongThanhTien()+"");
 				ArrayList<ChiTietHoaDon> chiTietHoaDons = hoaDon.getdSCTHoaDon();
@@ -165,6 +166,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
 				return c;	
 			}	
 		};
+		
 		tblDanhSachHD.getTableHeader().setReorderingAllowed(false);
 		
         jScrollPane1.setViewportView(tblDanhSachHD);
@@ -233,6 +235,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
 				return c;	
 			}	
 		};
+		
 		
 		tblCTHD.getTableHeader().setReorderingAllowed(false);
 		
@@ -411,5 +414,7 @@ public class GUIDanhSachHoaDon extends javax.swing.JPanel {
     
     private ArrayList<HoaDon> dsHoaDon;
     private DAOHoaDon daoHoaDon;
+    
+    private JFrame parent;
     // End of variables declaration                   
 }

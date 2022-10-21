@@ -535,5 +535,3 @@ select * from HoaDon
 select * from ChiTietHoaDon
 select * from DonDatHang
 select * from ChiTietDonDatHang
-
-select dbo.auto_HoaDonID(getdate())

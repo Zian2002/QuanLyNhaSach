@@ -159,9 +159,11 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     public GUILapHoaDon(NhanVien nhanVien, DonDatHang donDatHang) {
     	this.nhanVien = nhanVien;
     	this.khachHang = donDatHang.getKhachHang();
-    	this.dsCTDDH = donDatHang.getdSCTDonDatHang();
+       	loadTTKhachHang();
+    	this.dsCTHD = donDatHang.convertToCTHDList();
     	init();
     }
+    
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -256,19 +258,8 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 
         lblSDT.setText("Số điện thoại: ");
 
-//        txtSoDienThoai.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                txtSoDienThoaiActionPerformed(evt);
-//            }
-//        });
 
         lblDiaChi.setText("Địa chỉ:  ");
-
-//        txtDiaChi.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                txtDiaChiActionPerformed(evt);
-//            }
-//        });
 
         btnLamMoi.setText("Làm mới");
 
@@ -907,6 +898,10 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     		txtSoDienThoai.setText(khachHang.getsDT());
     		btnLamMoi.setEnabled(false);
     	}
+    }
+    
+    private void loadCTDDH() {
+    	dsCTHD = dsCTDDH
     }
     
     private void clearPanelKhachHang() {

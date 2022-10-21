@@ -79,9 +79,8 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 	JMenuItem meimCapNhatNCC , meimTimKiemNCC; //NCC
 	JMenuItem meimThongKeSanPham, meimThongKeDoanhThu; //Thống kê
 	JMenuItem meimBaoCaoNgay, meimBaoCaoThang;//Báo cáo
-
 	JLabel lbNhanVien, lbNgayHienTai;
-	public NhanVien nhanVien;
+	public static NhanVien nhanVien;
 	public static JPanel pnMain = new JPanel();
 	public static JPanel childPanel;
 	
@@ -351,6 +350,14 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 	
 	
 	
+	public static NhanVien getNhanVien() {
+		return nhanVien;
+	}
+
+	public void setNhanVien(NhanVien nhanVien) {
+		this.nhanVien = nhanVien;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -389,7 +396,7 @@ public class GUIMenuQuanLy extends JFrame implements ActionListener {
 			showPanel(new GUIThemDonDatHang());
 		}
 		else if (object.equals(meimDanhSachDonDatHang)) {
-			showPanel(new GUIDanhSachDonDatHang());
+			showPanel(new GUIDanhSachDonDatHang(this));
 		}
 		else if (object.equals(meimTimKiemDonDatHang)) {
 			new FormTimKiemDonDatHang().setVisible(true);

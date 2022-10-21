@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -89,4 +90,18 @@ public class DAOSanPham {
 		return dsSach;
 	}
 
+	public void banSanPham(String maSP, int soLuong) {
+		try {
+			Connection con = ConnectDB.getConnection();
+			String sql = "update SanPham set soLuongCon = soLuongCon - ?\r\n"
+					+ "where maSP = ?";
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setInt(1, soLuong);
+			statement.setString(2, maSP);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

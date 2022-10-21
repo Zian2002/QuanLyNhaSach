@@ -23,9 +23,12 @@ import entity.VanPhongPham;
 
 public class DAOHoaDon {
 
+	private DAOSanPham daoSanPham;
+	
 	public DAOHoaDon() {
 		super();
 		// TODO Auto-generated constructor stub
+		daoSanPham = new DAOSanPham();
 	}
 	
 	public ArrayList<HoaDon> getDSHoaDon(){
@@ -105,6 +108,8 @@ public class DAOHoaDon {
 				statement.setDouble(3, chiTietHoaDon.getDonGia());
 				statement.setInt(4, chiTietHoaDon.getSoLuong());
 				statement.executeUpdate();
+				
+				daoSanPham.banSanPham(chiTietHoaDon.getSanPham().getMaSP(), chiTietHoaDon.getSoLuong());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
