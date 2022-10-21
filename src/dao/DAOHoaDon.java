@@ -47,7 +47,7 @@ public class DAOHoaDon {
 				String maHD = rs.getString(1);
 				HoaDon hoaDon = new HoaDon(maHD, new NhanVien(rs.getString(2), rs.getString(3)), 
 						new KhachHang(rs.getString(4), rs.getString(5)), 
-						LocalDateTime.parse(rs.getString(6), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+				LocalDateTime.parse(rs.getString(6), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 				
 				String sqlCT = "select cthd.maHD, sp.maSP, sp.tenSP, lsp.maLoai, lsp.tenLoai, \r\n"
 						+ "		dvt.maDVT, dvt.tenDVT, cthd.donGia, cthd.soLuong\r\n"

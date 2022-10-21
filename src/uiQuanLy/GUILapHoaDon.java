@@ -219,7 +219,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        lblTitle.setText("LẬP HÓA ĐƠN");
+        lblTitle.setText("Láº¬P HÃ“A Ä�Æ N");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -238,9 +238,9 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
                 .addContainerGap())
         );
 
-        pnTTKhachHang.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin khách hàng"));
+        pnTTKhachHang.setBorder(javax.swing.BorderFactory.createTitledBorder("ThÃ´ng tin khÃ¡ch hÃ ng"));
 
-        lblMaKH.setText("Mã khách hàng: ");
+        lblMaKH.setText("MÃ£ khÃ¡ch hÃ ng: ");
 
 //        cboKhachHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 //
@@ -250,22 +250,22 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 //            }
 //        });
 
-        lblTenKH.setText("Tên khách hàng: ");
+        lblTenKH.setText("TÃªn khÃ¡ch hÃ ng: ");
 
-        lblGioiTinh.setText("Giới tính: ");
+        lblGioiTinh.setText("Giá»›i tÃ­nh: ");
 
         cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblSDT.setText("Số điện thoại: ");
+        lblSDT.setText("Sá»‘ Ä‘iá»‡n thoáº¡i: ");
 
 
-        lblDiaChi.setText("Địa chỉ:  ");
+        lblDiaChi.setText("Ä�á»‹a chá»‰:  ");
 
-        btnLamMoi.setText("Làm mới");
+        btnLamMoi.setText("LÃ m má»›i");
 
         jdcNgaySinh.setDateFormatString("yyyy-MM-dd");
 
-        lblNgaySinh.setText("Ngày sinh: ");
+        lblNgaySinh.setText("NgÃ y sinh: ");
 
         javax.swing.GroupLayout pnTTKhachHangLayout = new javax.swing.GroupLayout(pnTTKhachHang);
         pnTTKhachHang.setLayout(pnTTKhachHangLayout);
@@ -331,13 +331,13 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
                 .addContainerGap())
         );
 
-        pnTTHoaDon.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin hóa đơn"));
+        pnTTHoaDon.setBorder(javax.swing.BorderFactory.createTitledBorder("ThÃ´ng tin hÃ³a Ä‘Æ¡n"));
 
-        lblMaHD.setText("Mã hóa đơn: ");
+        lblMaHD.setText("MÃ£ hÃ³a Ä‘Æ¡n: ");
 
-        lblNhanVien.setText("Nhân viên : ");
+        lblNhanVien.setText("NhÃ¢n viÃªn : ");
 
-        lblNgayLap.setText("Ngày lập: ");
+        lblNgayLap.setText("NgÃ y láº­p: ");
 
         javax.swing.GroupLayout pnTTHoaDonLayout = new javax.swing.GroupLayout(pnTTHoaDon);
         pnTTHoaDon.setLayout(pnTTHoaDonLayout);
@@ -379,7 +379,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
                 new Object [][] {	
                 },	
                 new String [] {	
-                    "STT", "Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm", "Đơn vị tính", "Đơn giá", "Số lượng", "Thành tiền"	
+                    "STT", "MÃ£ sáº£n pháº©m", "TÃªn sáº£n pháº©m", "Loáº¡i sáº£n pháº©m", "Ä�Æ¡n vá»‹ tÃ­nh", "Ä�Æ¡n giÃ¡", "Sá»‘ lÆ°á»£ng", "ThÃ nh tiá»�n"	
                 }	
             ) {	
                 boolean[] canEdit = new boolean [] {	
@@ -428,24 +428,24 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
             tblMuaHang.getColumnModel().getColumn(7).setResizable(false);
             tblMuaHang.getColumnModel().getColumn(7).setPreferredWidth(70);
         }
-        lblSoLuong.setText("Số lượng: ");
+        lblSoLuong.setText("Sá»‘ lÆ°á»£ng: ");
 
-        btnThemSP.setText("Thêm sản phẩm");
+        btnThemSP.setText("ThÃªm sáº£n pháº©m");
 
-        btnXoaSP.setText("Xóa sản phẩm");
+        btnXoaSP.setText("XÃ³a sáº£n pháº©m");
 
-        btnThayDoiSL.setText("Thay đổi số lượng");
+        btnThayDoiSL.setText("Thay Ä‘á»•i sá»‘ lÆ°á»£ng");
 
-        lblTongSLHang.setText("Tổng số lượng hàng: ");
+        lblTongSLHang.setText("Tá»•ng sá»‘ lÆ°á»£ng hÃ ng: ");
         lblTongSLHang.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
-        lblTongThanhTien.setText("Tổng thành tiền: ");
+        lblTongThanhTien.setText("Tá»•ng thÃ nh tiá»�n: ");
         lblTongThanhTien.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
-        lblKhuyenMai.setText("Khuyến mãi");
+        lblKhuyenMai.setText("Khuyáº¿n mÃ£i");
         lblKhuyenMai.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
-        lblTongThanhToan.setText("Tổng thanh toán: ");
+        lblTongThanhToan.setText("Tá»•ng thanh toÃ¡n: ");
         lblTongThanhToan.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         txtTongSLHang.setPreferredSize(new java.awt.Dimension(70, 25));
@@ -456,15 +456,15 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 
         cboKhuyenMai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "5%", "10%" }));
 
-        lblSoTienTraLai.setText("Số tiền trả lại: ");
+        lblSoTienTraLai.setText("Sá»‘ tiá»�n tráº£ láº¡i: ");
 
-        lblTienKhachDua.setText("Số tiền khách đưa: ");
+        lblTienKhachDua.setText("Sá»‘ tiá»�n khÃ¡ch Ä‘Æ°a: ");
 
-        btnThanhToan.setText("Thanh toán");
+        btnThanhToan.setText("Thanh toÃ¡n");
 
-        btnXuatHoaDon.setText("Xuất hóa đơn");
+        btnXuatHoaDon.setText("Xuáº¥t hÃ³a Ä‘Æ¡n");
 
-        btnHuyHoaDon.setText("Hủy hóa đơn");
+        btnHuyHoaDon.setText("Há»§y hÃ³a Ä‘Æ¡n");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -634,7 +634,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 
 	private void btnHuyHoaDonActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-		if (JOptionPane.showConfirmDialog(null, "Xác nhận hủy hóa đơn") == JOptionPane.YES_OPTION)
+		if (JOptionPane.showConfirmDialog(null, "XÃ¡c nháº­n há»§y hÃ³a Ä‘Æ¡n") == JOptionPane.YES_OPTION)
 			GUIMenuQuanLy.showPanel(new GUILapHoaDon(nhanVien));
 	}
 
@@ -648,11 +648,11 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 	private void btnThanhToanActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
 		if (cboKhachHang.getSelectedItem() == null) {
-			JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin khách hàng");
+			JOptionPane.showMessageDialog(null, "Vui lÃ²ng nháº­p Ä‘áº§y Ä‘á»§ thÃ´ng tin khÃ¡ch hÃ ng");
 			return;
 		}
 		if (dsCTHD.size() == 0) {
-			JOptionPane.showMessageDialog(null, "Vui lòng chọn ít nhất 1 sản phẩm");
+			JOptionPane.showMessageDialog(null, "Vui lÃ²ng chá»�n Ã­t nháº¥t 1 sáº£n pháº©m");
 			return;
 		}
 		
@@ -665,19 +665,19 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 									cboGioiTinh.getSelectedItem().equals("Nam")?true:false, txtDiaChi.getText());
 		hoaDon = new HoaDon(txtMaHD.getText(), nhanVien, khachHang, LocalDateTime.now(), dsCTHD);
 		if(daoHoaDon.themHoaDonMoi(hoaDon)) {
-			JOptionPane.showMessageDialog(null, "Thêm hóa đơn thành công");
+			JOptionPane.showMessageDialog(null, "ThÃªm hÃ³a Ä‘Æ¡n thÃ nh cÃ´ng");
 			btnThanhToan.setEnabled(false);
 			btnXuatHoaDon.setEnabled(true);
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi, thử lại sau");
+			JOptionPane.showMessageDialog(null, "Ä�Ã£ xáº£y ra lá»—i, thá»­ láº¡i sau");
 		}
 	}
 
 	private void setModel() {
     	modelCboGioiTinh = new DefaultComboBoxModel<>();
     	modelCboGioiTinh.addElement("Nam");
-    	modelCboGioiTinh.addElement("Nữ");
+    	modelCboGioiTinh.addElement("Ná»¯");
     	cboGioiTinh.setModel(modelCboGioiTinh);
     	
     	modelCboKhachHang = new DefaultComboBoxModel<>();
@@ -712,12 +712,12 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
         // TODO add your handling code here:
     	int selected = tblMuaHang.getSelectedRow();
     	if (selected == -1) {
-    		JOptionPane.showMessageDialog(null, "Vui lòng chọn sản phẩm cần xóa");
+    		JOptionPane.showMessageDialog(null, "Vui lÃ²ng chá»�n sáº£n pháº©m cáº§n xÃ³a");
     		return;
     	}
     	String maSP = tblMuaHang.getValueAt(selected, 1).toString();
     
-    	if (JOptionPane.showConfirmDialog(null, "Xác nhận xóa") == JOptionPane.YES_OPTION)
+    	if (JOptionPane.showConfirmDialog(null, "XÃ¡c nháº­n xÃ³a") == JOptionPane.YES_OPTION)
 	    	for (ChiTietHoaDon chiTietHoaDon : dsCTHD) {
 				if (chiTietHoaDon.getSanPham().getMaSP() == maSP) {
 					dsCTHD.remove(chiTietHoaDon);
@@ -739,7 +739,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     	int soLuong = Integer.parseInt(txtSoLuong.getText());
     	
     	if (sanPham.getSoLuongCon() < soLuong) {
-    		JOptionPane.showMessageDialog(null, "Số lượng không đủ!\n Số lượng còn lại: " + sanPham.getSoLuongCon());
+    		JOptionPane.showMessageDialog(null, "Sá»‘ lÆ°á»£ng khÃ´ng Ä‘á»§!\n Sá»‘ lÆ°á»£ng cÃ²n láº¡i: " + sanPham.getSoLuongCon());
     		return;
     	}
     	
@@ -748,7 +748,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     		ChiTietHoaDon cthd = dsCTHD.get(i);
 			if (cthd.equals(chiTietHoaDon)) {
 				if (cthd.getSanPham().getSoLuongCon() < cthd.getSoLuong() + soLuong) {
-					JOptionPane.showMessageDialog(null, "Số lượng không đủ!\n Số lượng còn lại: " + 
+					JOptionPane.showMessageDialog(null, "Sá»‘ lÆ°á»£ng khÃ´ng Ä‘á»§!\n Sá»‘ lÆ°á»£ng cÃ²n láº¡i: " + 
 									(sanPham.getSoLuongCon() - cthd.getSoLuong()));
 					updateCboSanPham();
 		    		return;
@@ -774,7 +774,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     	System.out.println(",jksadhnklja");
     	int selected = tblMuaHang.getSelectedRow();
     	if (selected == -1) {
-    		JOptionPane.showMessageDialog(null, "Vui lòng chọn sản phẩm cần thay đổi số lượng");
+    		JOptionPane.showMessageDialog(null, "Vui lÃ²ng chá»�n sáº£n pháº©m cáº§n thay Ä‘á»•i sá»‘ lÆ°á»£ng");
     		return;
     	}
     	String maSP = tblMuaHang.getValueAt(selected, 1).toString();
@@ -783,14 +783,14 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 			if (chiTietHoaDon.getSanPham().getMaSP() == maSP) {
 				int soLuongMoi = chiTietHoaDon.getSoLuong();
 		    	try {
-					soLuongMoi = Integer.parseInt(JOptionPane.showInputDialog(null, "Nhập số lượng"));
+					soLuongMoi = Integer.parseInt(JOptionPane.showInputDialog(null, "Nháº­p sá»‘ lÆ°á»£ng"));
 				} catch (Exception e) {
 					// TODO: handle exception
-					JOptionPane.showMessageDialog(null, "Vui lòng nhập số lượng dương");
+					JOptionPane.showMessageDialog(null, "Vui lÃ²ng nháº­p sá»‘ lÆ°á»£ng dÆ°Æ¡ng");
 					return;
 				}
 		    	if (chiTietHoaDon.getSanPham().getSoLuongCon() < soLuongMoi) {
-					JOptionPane.showMessageDialog(null, "Số lượng không đủ!\n Số lượng còn lại: " + 
+					JOptionPane.showMessageDialog(null, "Sá»‘ lÆ°á»£ng khÃ´ng Ä‘á»§!\n Sá»‘ lÆ°á»£ng cÃ²n láº¡i: " + 
 									chiTietHoaDon.getSanPham().getSoLuongCon());
 		    		return;
 				}
@@ -853,7 +853,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
         cboKhachHang.addItemListener((ItemEvent e) -> { 
             Object item = e.getItem(); 
             if (e.getStateChange() == ItemEvent.SELECTED) { 
-            	// nếu chọn item trong cbo
+            	// náº¿u chá»�n item trong cbo
                 if (item instanceof KhachHang) {
                 	setEditableKhachHang(false);
                 	KhachHang khachHang = (KhachHang) item;
@@ -863,7 +863,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
                 	if (khachHang.isGioiTinh())
                 		modelCboGioiTinh.setSelectedItem("Nam");
                 	else
-                		modelCboGioiTinh.setSelectedItem("Nữ");	
+                		modelCboGioiTinh.setSelectedItem("Ná»¯");	
                 	((JTextField) jdcNgaySinh.getDateEditor().getUiComponent())
                 	.setText(khachHang.getNgaySinh().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
                 }
@@ -893,7 +893,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     		if (khachHang.isGioiTinh())
     			modelCboGioiTinh.setSelectedItem("Nam");
     		else
-    			modelCboGioiTinh.setSelectedItem("Nữ");
+    			modelCboGioiTinh.setSelectedItem("Ná»¯");
     		txtDiaChi.setText(khachHang.getDiaChi());
     		txtSoDienThoai.setText(khachHang.getsDT());
     		btnLamMoi.setEnabled(false);
@@ -901,7 +901,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     }
     
     private void loadCTDDH() {
-    	dsCTHD = dsCTDDH
+//    	dsCTHD = dsCTDDH
     }
     
     private void clearPanelKhachHang() {
@@ -1015,7 +1015,7 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
         btnXuatHoaDon.setIcon(new ImageIcon("./image/in.png"));
         btnHuyHoaDon.setIcon(new ImageIcon("./image/huy.png"));
         
-     // không duy chuyển cột
+     // khÃ´ng duy chuyá»ƒn cá»™t
         tblMuaHang.getTableHeader().setReorderingAllowed(false);
         txtSoLuong.setText("1");
         txtTongSLHang.setEditable(false);

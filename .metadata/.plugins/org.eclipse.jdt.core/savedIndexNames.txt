@@ -1,7 +1,6 @@
 INDEX VERSION 1.131+D:\Documents\jar\QuanLyNhaSach\.metadata\.plugins\org.eclipse.jdt.core
 2550372555.index
 2400565138.index
-1865797976.index.tmp
 3254203247.index
 3390788239.index
 1067933779.index
