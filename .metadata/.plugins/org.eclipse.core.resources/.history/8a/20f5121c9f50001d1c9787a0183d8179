@@ -1,0 +1,53 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import database.ConnectDB;
+import entity.ChucVu;
+import entity.KhachHang;
+import entity.NhanVien;
+
+
+public class DAONhanVien{
+	
+	public ArrayList<NhanVien> getDanhsachNhanVien(){
+		ArrayList<NhanVien> dsNV = new ArrayList<NhanVien>();
+		
+		
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "select nv.*, cv.tenChucVu\r\n"
+					+ "from NhanVien nv inner join ChucVu cv on nv.maChucVu = cv.maChucVu";
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while (rs.next()) {
+				String maNV = rs.getString(1);
+				String tenNV = rs.getString(2);
+				String cMND = rs.getString(3);
+				String sDT = rs.getString(4);
+				LocalDate ngaySinh = LocalDate.parse(rs.getDate(5).toString());
+				Boolean gioiTinh = rs.getBoolean(6);
+				String diaChi = rs.getString(7);
+				LocalDate ngayVaoLam = LocalDate.parse(rs.getDate(8).toString());
+				int maChucVu = rs.getInt(9);
+				String tenChucVu = rs.getString(10);
+				
+				dsNV.add(new NhanVien(maNV, tenNV, cMND, ngaySinh, gioiTinh, sDT, diaChi, ngayVaoLam, new ChucVu(maChucVu, tenChucVu)));
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return dsNV;
+	}
+		
+		
+}
+
+

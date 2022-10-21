@@ -1,0 +1,96 @@
+package entity;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class KhachHang {
+	private String maKH;
+	private String tenKH;
+	private String sDT;
+	private LocalDate ngaySinh;
+	private boolean gioiTinh;
+	private String diaChi;
+	private ArrayList<KhachHang> danhSachKhachHang;
+	
+	public KhachHang() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public KhachHang(String maKH, String tenKH, String sDT, LocalDate ngaySinh, boolean gioiTinh, String diaChi) {
+		super();
+		this.maKH = maKH;
+		this.tenKH = tenKH;
+		this.sDT = sDT;
+		this.ngaySinh = ngaySinh;
+		this.gioiTinh = gioiTinh;
+		this.diaChi = diaChi;
+	}
+	
+	public String getMaKH() {
+		return maKH;
+	}
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
+	}
+	public String getTenKH() {
+		return tenKH;
+	}
+	public void setTenKH(String tenKH) {
+		this.tenKH = tenKH;
+	}
+	public String getsDT() {
+		return sDT;
+	}
+	public void setsDT(String sDT) {
+		this.sDT = sDT;
+	}
+	public LocalDate getNgaySinh() {
+		return ngaySinh;
+	}
+	public void setNgaySinh(LocalDate ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+	public boolean isGioiTinh() {
+		return gioiTinh;
+	}
+	public void setGioiTinh(boolean gioiTinh) {
+		this.gioiTinh = gioiTinh;
+	}
+	public String getDiaChi() {
+		return diaChi;
+	}
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+	public ArrayList<KhachHang> getDanhSachKhachHang() {
+		return danhSachKhachHang;
+	}
+	public void setDanhSachKhachHang(ArrayList<KhachHang> danhSachKhachHang) {
+		this.danhSachKhachHang = danhSachKhachHang;
+	}
+	public KhachHang(String maKH, String tenKH, String sDT, LocalDate ngaySinh, boolean gioiTinh, String diaChi,
+			ArrayList<KhachHang> danhSachKhachHang) {
+		super();
+		this.maKH = maKH;
+		this.tenKH = tenKH;
+		this.sDT = sDT;
+		this.ngaySinh = ngaySinh;
+		this.gioiTinh = gioiTinh;
+		this.diaChi = diaChi;
+		this.danhSachKhachHang = danhSachKhachHang;
+	}
+	@Override
+	public String toString() {
+		return "KhachHang [maKH=" + maKH + ", tenKH=" + tenKH + ", sDT=" + sDT + ", gioiTinh=" + gioiTinh + ", diaChi="
+				+ diaChi + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+}

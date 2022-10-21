@@ -1,0 +1,55 @@
+package controller;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import javax.swing.UIManager;
+
+import dao.DAOKhachHang;
+import dao.DAOSanPham;
+import database.ConnectDB;
+import entity.ChucVu;
+import entity.KhachHang;
+import entity.NhanVien;
+import entity.SanPham;
+import uiMenu.GUIMenuQuanLy;
+
+public class main{
+	public static void main(String[] args) {
+		
+		try {
+			ConnectDB.getInstance().connect();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.fast.FastLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+//			UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
+			
+			
+			//NhanVien nhanVien = new NhanVien("20022361", "Bùi Nhựt Duy", "6453245678", LocalDate.now(), true, "1000", "Bến Tre", LocalDate.now(), new ChucVu());
+			new GUIMenuQuanLy(null).setVisible(true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		};
+		
+		
+
+		
+	}
+}

@@ -1,0 +1,50 @@
+package entity;
+
+import java.util.ArrayList;
+
+public class ChucVu {
+	private int maChucVu;
+	private String tenChucVu;
+	private ArrayList<ChucVu> danhSachChucvu;
+	public ChucVu() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public ChucVu(int maChucVu, String tenChucVu, ArrayList<ChucVu> dsCV) {
+		super();
+		this.maChucVu = maChucVu;
+		this.tenChucVu = tenChucVu;
+		this.danhSachChucvu = dsCV;
+	}
+
+	public int getMaChucVu() {
+		return maChucVu;
+	}
+
+	public void setMaChucVu(int maChucVu) {
+		this.maChucVu = maChucVu;
+	}
+
+	public String getTenChucVu() {
+		return tenChucVu;
+	}
+
+	public void setTenChucVu(String tenChucVu) {
+		this.tenChucVu = tenChucVu;
+	}
+
+	public ArrayList<ChucVu> getDsCV() {
+		return danhSachChucvu;
+	}
+
+	public void setDsCV(ArrayList<ChucVu> dsCV) {
+		this.danhSachChucvu = dsCV;
+	}
+
+	@Override
+	public String toString() {
+		return "ChucVu [maChucVu=" + maChucVu + ", tenChucVu=" + tenChucVu + "]";
+	}
+	
+}

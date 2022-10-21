@@ -1,0 +1,157 @@
+package entity;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class NhanVien {
+	private String maNV;
+	private String tenNV;
+	private String cMND;
+	private LocalDate ngaySinh;
+	private boolean gioiTinh;
+	private String sDT;
+	private String diaChi;
+	private LocalDate ngayVaoLam;
+	private ChucVu chucVu;
+	private String maChucVu;
+	private String tenChucVu;
+	private ArrayList<NhanVien> danhSachNhanVien;
+	
+	
+	public NhanVien() {
+		super();
+	}
+
+
+	
+
+
+	public NhanVien(String maNV, String tenNV, String cMND, LocalDate ngaySinh, boolean gioiTinh, String sDT,
+			String diaChi, LocalDate ngayVaoLam, ChucVu chucVu, String machucVu, String tenChucVu,
+			ArrayList<NhanVien> danhSachNhanVien) {
+		super();
+		this.maNV = maNV;
+		this.tenNV = tenNV;
+		this.cMND = cMND;
+		this.ngaySinh = ngaySinh;
+		this.gioiTinh = gioiTinh;
+		this.sDT = sDT;
+		this.diaChi = diaChi;
+		this.ngayVaoLam = ngayVaoLam;
+		this.chucVu = chucVu;
+		this.danhSachNhanVien = danhSachNhanVien;
+	}
+
+
+
+
+
+	public String getMaNV() {
+		return maNV;
+	}
+
+
+	public void setMaNV(String maNV) {
+		this.maNV = maNV;
+	}
+
+
+	public String getTenNV() {
+		return tenNV;
+	}
+
+
+	public void setTenNV(String tenNV) {
+		this.tenNV = tenNV;
+	}
+
+
+	public String getcMND() {
+		return cMND;
+	}
+
+
+	public void setcMND(String cMND) {
+		this.cMND = cMND;
+	}
+
+
+	public LocalDate getNgaySinh() {
+		return ngaySinh;
+	}
+
+
+	public void setNgaySinh(LocalDate ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+
+
+	public boolean isGioiTinh() {
+		return gioiTinh;
+	}
+
+
+	public void setGioiTinh(boolean gioiTinh) {
+		this.gioiTinh = gioiTinh;
+	}
+
+
+	public String getsDT() {
+		return sDT;
+	}
+
+
+	public void setsDT(String sDT) {
+		this.sDT = sDT;
+	}
+
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
+
+	public LocalDate getNgayVaoLam() {
+		return ngayVaoLam;
+	}
+
+
+	public void setNgayVaoLam(LocalDate ngayVaoLam) {
+		this.ngayVaoLam = ngayVaoLam;
+	}
+
+
+	
+
+
+	
+
+
+
+
+	public ArrayList<NhanVien> getDanhSachNhanVien() {
+		return danhSachNhanVien;
+	}
+
+
+	public void setDanhSachNhanVien(ArrayList<NhanVien> danhSachNhanVien) {
+		this.danhSachNhanVien = danhSachNhanVien;
+	}
+
+
+	@Override
+	public String toString() {
+		return "NhanVien [maNV=" + maNV + ", tenNV=" + tenNV + ", cMND=" + cMND + ", ngaySinh=" + ngaySinh
+				+ ", gioiTinh=" + gioiTinh + ", sDT=" + sDT + ", diaChi=" + diaChi + ", ngayVaoLam=" + ngayVaoLam
+				+ ", maChucVu=" + maChucVu + ", tenChucVu=" + tenChucVu + "]";
+	}
+	
+	
+	
+	
+}

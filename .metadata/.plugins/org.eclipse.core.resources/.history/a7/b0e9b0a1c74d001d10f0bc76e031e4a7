@@ -1,0 +1,102 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+
+import com.toedter.calendar.JDateChooser;
+
+import database.ConnectDB;
+import entity.KhachHang;
+
+public class DAOKhachHang {
+	
+	public ArrayList<KhachHang> getDanhsachKhachHang(){
+		ArrayList<KhachHang> dsKH = new ArrayList<KhachHang>();
+		
+		
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "Select * from KhachHang";
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while (rs.next()) {
+				String maKH = rs.getString(1);
+				String tenKH = rs.getString(2);
+				String sDT = rs.getString(3);
+				LocalDate ngaySinh = LocalDate.parse(rs.getDate(4).toString());
+				Boolean gioiTinh = rs.getBoolean(5);
+				String diaChi = rs.getString(6);
+				dsKH.add(new KhachHang(maKH, tenKH, sDT, ngaySinh, gioiTinh, diaChi));
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return dsKH;
+	
+	}
+	
+	
+	
+	public void them_KH(KhachHang khachHang) throws SQLException {
+		ConnectDB.getInstance();
+		Connection connection = ConnectDB.getConnection();
+		PreparedStatement statement = null;
+		try {
+			String sql = "Insert into KhachHang values (?, ?, ?, ?, ?, ?)";
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, khachHang.getMaKH());
+			statement.setString(2, khachHang.getTenKH());
+			statement.setDate(3, new java.sql.Date(khachHang.getNgaySinh().getDayOfMonth()));
+			statement.setBoolean(4, khachHang.isGioiTinh());
+			statement.setString(5, khachHang.getsDT());
+			statement.setString(6, khachHang.getDiaChi());
+			statement.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			statement.close();
+		}
+	}
+	
+	public void xoa_KH(KhachHang khachHang) throws SQLException {
+		
+		Connection connection = ConnectDB.getConnection();
+		Connection con = ConnectDB.getInstance().getConnection();
+		PreparedStatement statement = null;
+		
+		try {
+			String sql = "Delate from KhachHang where maKH =?";
+			statement = connection.prepareStatement(sql);
+			statement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		} finally {
+			statement.close();
+			
+		}
+		
+		public void
+		
+		
+	}
+	
+	
+	
+	
+	
+		
+		
+	
+}

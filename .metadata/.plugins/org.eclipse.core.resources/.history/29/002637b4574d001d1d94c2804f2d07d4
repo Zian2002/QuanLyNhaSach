@@ -1,0 +1,41 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import database.ConnectDB;
+import entity.KhachHang;
+import entity.NhanVien;
+
+public class DAONhanVien {
+	public ArrayList<NhanVien> getDanhsachNhanVien(){
+		ArrayList<NhanVien> dsKH = new ArrayList<NhanVien>();
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			
+			String sql = "Select * from NhanVien";
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while (rs.next()) {
+				String maNV = rs.getString(1);
+				String tenNV = rs.getString(2);
+				String sDT = rs.getString(3);
+				LocalDate date = LocalDate.parse(rs.getDate(4).toString());
+				Boolean gioiTinh = rs.getBoolean(5);
+				String diaChi = rs.getString(6);
+				dsKH.add(new KhachHang(maNV, tenNV, sDT, date, gioiTinh, diaChi));
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return dsKH;
+	
+	}
+
+}
