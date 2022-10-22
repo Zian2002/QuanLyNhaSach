@@ -23,10 +23,12 @@ import entity.Sach;
 import entity.VanPhongPham;
 
 public class DAODonDatHang {
-
+	private DAOSanPham daoSanPham;
+	
 	public DAODonDatHang() {
 		super();
 		// TODO Auto-generated constructor stub
+		daoSanPham = new DAOSanPham();
 	}
 	public ArrayList<DonDatHang> getDSDonDatHang(){
 		ArrayList<DonDatHang> dsDonDatHang = new ArrayList<DonDatHang>();
@@ -34,7 +36,7 @@ public class DAODonDatHang {
 			ConnectDB.getInstance();
 			Connection connection = ConnectDB.getConnection();
 			String sql = "select ddh.maDDH, kh.*, format(ddh.ngayDat, 'yyyy-MM-dd HH:mm:ss'), ddh.trangThai from DonDatHang ddh\r\n"
-					+ "inner join KhachHang kh on ddh.maKH = kh.maKH";
+					+ "inner join KhachHang kh on ddh.maKH = kh.maKH order by ngayDat desc" ;
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
 			while(rs.next()) {
@@ -121,6 +123,8 @@ public class DAODonDatHang {
 				statement.setDouble(3, chiTietDonDatHang.getDonGia());
 				statement.setInt(4, chiTietDonDatHang.getSoLuong());
 				statement.executeUpdate();
+				
+				daoSanPham.capNhatSoLuong(chiTietDonDatHang.getSanPham().getMaSP(), chiTietDonDatHang.getSoLuong()*-1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -128,6 +132,49 @@ public class DAODonDatHang {
 		}
 		
 		return true;
-
+	}
+	
+	public void capNhatDonDatHang() {
+		ArrayList<DonDatHang> dsDonDatHang = new ArrayList<DonDatHang>();
+		try {
+			ConnectDB.getInstance();
+			Connection connection = ConnectDB.getConnection();
+			String sql = "select ctddh.maSP, ctddh.soLuong from DonDatHang ddh\r\n"
+					+ "inner join ChiTietDonDatHang ctddh on ddh.maDDH = ctddh.maDDH\r\n"
+					+ "where trangThai = 0  and dateadd(day, 7, ngayDat) < getdate()";
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			while(rs.next()) {
+				String maSP = rs.getString(1);
+				int soLuong = rs.getInt(2);
+				daoSanPham.capNhatSoLuong(maSP, soLuong);
+			}
+			
+			//-----------
+			//Cap nhat trang thai
+			
+			sql = "update DonDatHang set trangThai = -1 \r\n"
+					+ "where trangThai = 0  and dateadd(day, 7, ngayDat) < getdate()";
+			PreparedStatement statement2 = connection.prepareStatement(sql);
+			statement2.executeUpdate();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void capNhatTrangThaiThanhToan(String maDDH, int trangThai) {
+		try {
+			ConnectDB.getInstance();
+			Connection connection = ConnectDB.getConnection();
+			String sql = "update DonDatHang set trangThai = ? \r\n"
+					+ "where maDDH = ?";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, trangThai);
+			statement.setString(2, maDDH);
+			statement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
 	}
 }

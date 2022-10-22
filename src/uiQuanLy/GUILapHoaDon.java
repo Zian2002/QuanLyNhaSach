@@ -36,6 +36,7 @@ import javax.swing.text.JTextComponent;
 
 import com.toedter.calendar.JDateChooser;
 
+import dao.DAODonDatHang;
 import dao.DAOHoaDon;
 import dao.DAOKhachHang;
 import dao.DAOSanPham;
@@ -114,11 +115,13 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     private double thanhTien;
     private double thanhToan;
     private HoaDon hoaDon;
+    private String maDDH="";
     
     private ArrayList<ChiTietHoaDon> dsCTHD;
     private DAOKhachHang daoKhachHang;
     private DAOSanPham daoSanPham;
     private DAOHoaDon daoHoaDon;
+    private DAODonDatHang daoDonDatHang;
     
     private JFrame parent;
 	private JDateChooser jdcNgaySinh;
@@ -129,25 +132,26 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     	daoKhachHang = new DAOKhachHang();
     	daoSanPham = new DAOSanPham();
     	daoHoaDon = new DAOHoaDon();
-    	dsCTHD = new ArrayList<ChiTietHoaDon>();
+    	daoDonDatHang = new DAODonDatHang();
         initComponents();
         setModel();
-        formatForm();
         updateCboKhachHang();
         addListenerCBOKhachHang();
         updateCboSanPham();
         addListenerCBOSanPham();
+        formatForm();
     }
     
     public GUILapHoaDon(NhanVien nhanVien) {
     	this.nhanVien = nhanVien;
+    	this.dsCTHD = new ArrayList<ChiTietHoaDon>();
     	init();
-        
     }
     
     public GUILapHoaDon(NhanVien nhanVien, KhachHang khachHang) {
     	this.nhanVien = nhanVien;
     	this.khachHang = khachHang;
+    	this.dsCTHD = new ArrayList<ChiTietHoaDon>();
     	init();
     	loadTTKhachHang();
     }
@@ -155,9 +159,14 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     public GUILapHoaDon(NhanVien nhanVien, DonDatHang donDatHang) {
     	this.nhanVien = nhanVien;
     	this.khachHang = donDatHang.getKhachHang();
-       	loadTTKhachHang();
     	this.dsCTHD = donDatHang.convertToCTHDList();
+    	this.maDDH = donDatHang.getMaDDH();
     	init();
+       	loadTTKhachHang();
+       	updateTableMuaHang();
+       	btnThemSP.setEnabled(false);
+       	btnXoaSP.setEnabled(false);
+       	btnThayDoiSL.setEnabled(false);
     }
     
     private void initComponents() {
@@ -660,10 +669,13 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
 									LocalDate.parse(ngaySinh, DateTimeFormatter.ofPattern("yyyy-MM-dd")), 
 									cboGioiTinh.getSelectedItem().equals("Nam")?true:false, txtDiaChi.getText());
 		hoaDon = new HoaDon(txtMaHD.getText(), nhanVien, khachHang, LocalDateTime.now(), dsCTHD);
-		if(daoHoaDon.themHoaDonMoi(hoaDon)) {
+		if(daoHoaDon.themHoaDonMoi(hoaDon, !maDDH.equals(""))) {
+			System.out.println("maDDH:" + maDDH);
 			JOptionPane.showMessageDialog(null, "Thêm hóa đơn thành công");
+			daoDonDatHang.capNhatTrangThaiThanhToan(maDDH, 1);
 			btnThanhToan.setEnabled(false);
 			btnXuatHoaDon.setEnabled(true);
+			maDDH = "";
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi, thử lại sau");
@@ -895,9 +907,6 @@ public class GUILapHoaDon extends javax.swing.JPanel implements ActionListener{
     	}
     }
     
-    private void loadCTDDH() {
-//    	dsCTHD = dsCTDDH
-    }
     
     private void clearPanelKhachHang() {
     	txtMaKH.setText("");

@@ -40,7 +40,7 @@ public class DAOHoaDon {
 					+ "		kh.maKH, kh.hoTen, format(hd.thoiGianLap, 'yyyy-MM-dd HH:mm:ss')\r\n"
 					+ "from HoaDon hd\r\n"
 					+ "	inner join NhanVien nv on hd.maNV = nv.maNV\r\n"
-					+ "	inner join KhachHang kh on hd.maKH = kh.maKH";
+					+ "	inner join KhachHang kh on hd.maKH = kh.maKH order by thoiGianLap desc";
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
 			while(rs.next()) {
@@ -82,7 +82,7 @@ public class DAOHoaDon {
 		return dsHoaDon;
 	}
 	
-	public boolean themHoaDonMoi(HoaDon hoaDon) {
+	public boolean themHoaDonMoi(HoaDon hoaDon, boolean dDH) {
 		ConnectDB.getInstance();
 		Connection connection = ConnectDB.getConnection();
 		PreparedStatement statement = null;
@@ -108,8 +108,8 @@ public class DAOHoaDon {
 				statement.setDouble(3, chiTietHoaDon.getDonGia());
 				statement.setInt(4, chiTietHoaDon.getSoLuong());
 				statement.executeUpdate();
-				
-				daoSanPham.banSanPham(chiTietHoaDon.getSanPham().getMaSP(), chiTietHoaDon.getSoLuong());
+				if (!dDH)
+					daoSanPham.capNhatSoLuong(chiTietHoaDon.getSanPham().getMaSP(), chiTietHoaDon.getSoLuong()*-1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

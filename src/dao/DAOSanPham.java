@@ -90,10 +90,10 @@ public class DAOSanPham {
 		return dsSach;
 	}
 
-	public void banSanPham(String maSP, int soLuong) {
+	public void capNhatSoLuong(String maSP, int soLuong) {
 		try {
 			Connection con = ConnectDB.getConnection();
-			String sql = "update SanPham set soLuongCon = soLuongCon - ?\r\n"
+			String sql = "update SanPham set soLuongCon = soLuongCon + ?\r\n"
 					+ "where maSP = ?";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setInt(1, soLuong);
