@@ -1,7 +1,6 @@
-/controller/
-/dao/
-/database/
-/entity/
 /uiMenu/
-/uiQuanLy/
 /uiTimKiem/
+/dao/
+/uiQuanLy/
+/controller/
+/entity/

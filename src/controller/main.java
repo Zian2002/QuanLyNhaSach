@@ -25,6 +25,8 @@ import entity.Sach;
 import entity.SanPham;
 import uiMenu.GUIMenuQuanLy;
 import uiQuanLy.GUIDanhSachDonDatHang;
+import uiQuanLy.GUIDanhSachSach;
+import uiQuanLy.GUIDanhSachVPP;
 
 public class main{
 	public static void main(String[] args) {
@@ -52,7 +54,10 @@ public class main{
 			UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");	
 			
 			NhanVien nhanVien = new NhanVien("20020001", "Bùi Nhựt Duy", "6453245678", LocalDate.now(), true, "1000", "Bến Tre", LocalDate.now(), new ChucVu());
-			new GUIMenuQuanLy(nhanVien).setVisible(true);		
+			new GUIMenuQuanLy(nhanVien).setVisible(true);	
+			GUIMenuQuanLy.showPanel(new GUIDanhSachSach());
+//			GUIMenuQuanLy.showPanel(new GUIDanhSachVPP());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		};

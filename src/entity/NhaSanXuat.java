@@ -26,7 +26,7 @@ public class NhaSanXuat {
 	}
 	@Override
 	public String toString() {
-		return "NhaSanXuat [maNSX=" + maNSX + ", tenNSX=" + tenNSX + "]";
+		return tenNSX;
 	}
 	
 	

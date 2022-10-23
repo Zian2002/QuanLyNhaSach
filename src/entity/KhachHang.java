@@ -29,6 +29,8 @@ public class KhachHang {
 		this.gioiTinh = gioiTinh;
 		this.diaChi = diaChi;
 	}
+	
+
 	public String getMaKH() {
 		return maKH;
 	}

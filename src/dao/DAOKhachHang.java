@@ -116,27 +116,56 @@ public class DAOKhachHang {
 			ConnectDB.getInstance();
 			Connection connection = ConnectDB.getConnection();
 			PreparedStatement statement = null;
-			int n = 0;
+			String sql = "update KhachHang set hoTen=?, sDT=?, ngaySinh=?, gioiTinh=?, diaChi=? where maKH=?";
+			
 			try {
-				String sql = "update KhachHang set maKH=?, tenKH=?, ngaySinh=?, gioiTinh=?, sDT=?, diaChi=? where maKH=?";
-				statement = connection.prepareStatement(sql);
-				statement.setString(1, khachHang.getMaKH());
-				statement.setString(2, khachHang.getTenKH());
+				
+				statement = connection.prepareStatement(sql);				
+				statement.setString(1, khachHang.getTenKH());
+				statement.setString(2, khachHang.getsDT());
 				statement.setString(3, khachHang.getNgaySinh().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-				statement.setBoolean(4, khachHang.isGioiTinh());
-				statement.setString(5, khachHang.getsDT());
-				statement.setString(6, khachHang.getDiaChi());
-				n = statement.executeUpdate();
+				statement.setBoolean(4, khachHang.isGioiTinh());			
+				statement.setString(5, khachHang.getDiaChi());
+				statement.setString(6, khachHang.getMaKH());
+				statement.executeUpdate();
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			} finally {
 				statement.close();
 			}
-			return n > 0 ;
+			return false;
+			
 		}
 		
 		
+		public ArrayList<KhachHang> timKiemKhachHang(String tenKH, String sDT, 
+				String ngaySinh, boolean gioiTinh) {
+			ArrayList<KhachHang> dsKH = new ArrayList<KhachHang>();
+			
+		
+			try {
+				ConnectDB.getInstance();
+				Connection con = ConnectDB.getConnection();
+				
+				String sql = "Select * from KhachHang kh where kh.hoTen like '%"+tenKH+"%'"
+						+ "and kh.sDT like '%"+sDT+"%'"
+						+ "and format(kh.ngaySinh,'yyyy-MM-dd') like '%"+ngaySinh+"%'"
+						+ "and kh.gioiTinh  = " + String.valueOf(gioiTinh?1:0);
+				Statement statement = con.createStatement();
+				ResultSet rs = statement.executeQuery(sql);
+				while (rs.next()) {					
+					dsKH.add(new KhachHang(rs.getString(1), rs.getString(2), rs.getString(3),
+							LocalDate.parse(rs.getString(4),DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+							rs.getBoolean(5), rs.getString(6)));
+	
+				}
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			return dsKH;		
+		}	
 	}
 
 	

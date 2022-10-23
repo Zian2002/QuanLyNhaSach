@@ -1,33 +1,49 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package uiTimKiem;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
+import entity.LoaiSanPham;
 
 /**
  *
- * @author ACER
+ * @author MSII
  */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+public class FormTimKiemVPP extends javax.swing.JPanel {
+	
+    public JComboBox<LoaiSanPham> getcboLoai() {
+		return cboLoai;
+	}
 
+	public void setcboLoai(JComboBox<LoaiSanPham> cboLoai) {
+		this.cboLoai = cboLoai;
+	}
 
-/**
- *
- * @author ACER
- */
-public class FormTimKiemVPP extends javax.swing.JFrame {
+	public javax.swing.JTextField getTxtTenNSX() {
+		return txtTenNSX;
+	}
 
-    /**
-     * Creates new form TimKiemVPP
+	public void setTxtTenNSX(javax.swing.JTextField txtTenNSX) {
+		this.txtTenNSX = txtTenNSX;
+	}
+
+	public javax.swing.JTextField getTxtTenVPP() {
+		return txtTenVPP;
+	}
+
+	public void setTxtTenVPP(javax.swing.JTextField txtTenVPP) {
+		this.txtTenVPP = txtTenVPP;
+	}
+
+	/**
+     * Creates new form GUITimKiemNhanVien
      */
     public FormTimKiemVPP() {
         initComponents();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -39,129 +55,88 @@ public class FormTimKiemVPP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        lblTimKiemSach = new javax.swing.JLabel();
-        lblMaVPP = new javax.swing.JLabel();
-        lblTenVPP = new javax.swing.JLabel();
-        lblNSX = new javax.swing.JLabel();
-        txtMaVPP = new javax.swing.JTextField();
+        lblLoaiVPP = new javax.swing.JLabel();
+        lblTenNSX = new javax.swing.JLabel();
         txtTenVPP = new javax.swing.JTextField();
-        btnTimKiem = new javax.swing.JButton();
-        cbNSX = new javax.swing.JComboBox<>();
+        lblTimKiemNV = new javax.swing.JLabel();
+        lblTenVPP = new javax.swing.JLabel();
+        txtTenNSX = new javax.swing.JTextField();
+        cboLoai = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      
 
-        lblTimKiemSach.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblTimKiemSach.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTimKiemSach.setText("TÌM KIẾM VĂN PHÒNG PHẨM");
+        lblLoaiVPP.setText("Loại VPP:");
 
-        lblMaVPP.setText("Mã văn phòng phẩm:");
+        lblTenNSX.setText("Tên NSX:");
 
-        lblTenVPP.setText("Tên văn phòng phẩm:");
+        lblTimKiemNV.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTimKiemNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTimKiemNV.setText("Tìm kiếm văn phòng phẩm");
 
-        lblNSX.setText("Nhà SX:");
+        lblTenVPP.setText("Tên VPP:");
 
-        btnTimKiem.setText("Tìm kiếm");
+        modelcboLoai = new DefaultComboBoxModel<LoaiSanPham>();
+        cboLoai.setModel(modelcboLoai);
 
-        cbNSX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblTenVPP)
-                                    .addComponent(lblMaVPP)
-                                    .addComponent(lblNSX))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtTenVPP, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbNSX, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtMaVPP, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(lblTimKiemSach)))
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTenNSX)
+                            .addComponent(lblLoaiVPP)
+                            .addComponent(lblTenVPP))
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTenVPP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(txtTenNSX)
+                            .addComponent(cboLoai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addGap(95, 95, 95)
+                        .addComponent(lblTimKiemNV)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblTimKiemSach)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMaVPP)
-                    .addComponent(txtMaVPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addComponent(lblTimKiemNV)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTenVPP)
                     .addComponent(txtTenVPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLoaiVPP)
+                    .addComponent(cboLoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNSX)
-                    .addComponent(cbNSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(btnTimKiem)
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(lblTenNSX)
+                    .addComponent(txtTenNSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        pack();
+        
     }// </editor-fold>                        
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemVPP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemVPP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemVPP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemVPP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormTimKiemVPP().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton btnTimKiem;
-    private javax.swing.JComboBox<String> cbNSX;
-    private javax.swing.JLabel lblMaVPP;
-    private javax.swing.JLabel lblNSX;
+   
+    private javax.swing.JLabel lblLoaiVPP;
+    private javax.swing.JLabel lblTenNSX;
     private javax.swing.JLabel lblTenVPP;
-    private javax.swing.JLabel lblTimKiemSach;
-    private javax.swing.JTextField txtMaVPP;
+    private javax.swing.JLabel lblTimKiemNV;
+    private javax.swing.JTextField txtTenNSX;
     private javax.swing.JTextField txtTenVPP;
+    private javax.swing.JComboBox<LoaiSanPham> cboLoai;
+    private DefaultComboBoxModel<LoaiSanPham> modelcboLoai;
     // End of variables declaration                   
 }

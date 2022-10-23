@@ -10,18 +10,23 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.swing.DefaultBoundedRangeModel;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.text.JTextComponent;
 
 import com.toedter.calendar.JDateChooser;
 
 import database.ConnectDB;
 import dao.DAOKhachHang;
 import entity.KhachHang;
+import entity.NhanVien;
+import uiMenu.GUIMenuQuanLy;
+import uiTimKiem.FormTimKiemKhachHang;
 
 public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
 	
@@ -58,9 +63,10 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
         btnTimKiem = new javax.swing.JButton();
         btnLenDon = new javax.swing.JButton();
         btnLHD = new javax.swing.JButton();
-        cbGioiTinh = new javax.swing.JComboBox<>();
+        cboGioiTinh = new javax.swing.JComboBox<>();
         jdcNgaySinh = new com.toedter.calendar.JDateChooser();
         jdcNgaySinh.setDateFormatString("yyyy-MM-dd");
+        ((JTextComponent)jdcNgaySinh.getDateEditor().getUiComponent()).setEditable(false);
         txtMaKH.setEditable(false);
         
         setPreferredSize(new java.awt.Dimension(1536, 650));
@@ -119,6 +125,7 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
             }
         });
 
+        
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,16 +202,17 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemActionPerformed(evt);
             }
+            
         });
 
         btnLenDon.setText("Lên đơn đặt hàng");
 
         btnLHD.setText("Lập hóa đơn");
 
-        cbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
-        cbGioiTinh.addActionListener(new java.awt.event.ActionListener() {
+        cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
+        cboGioiTinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbGioiTinhActionPerformed(evt);
+                cboGioiTinhActionPerformed(evt);
             }
         });
 
@@ -256,7 +264,7 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
                                         .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(40, 40, 40)
-                                        .addComponent(cbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(cboGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1410, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(419, 419, 419)
@@ -297,7 +305,7 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblGioiTinh)
-                            .addComponent(cbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDiaChi)
@@ -320,7 +328,25 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
           
         );
         setEditableForm(false);
-    }// </editor-fold>                        
+    }// </editor-fold>    
+    
+    private void loadTable(ArrayList<KhachHang> dsKH) {
+    	modeltblKH.setRowCount(0);
+    	this.dsKH = dsKH;
+    		for (KhachHang khachHang : dsKH) {
+				Object row[] = {
+						tblKhachHang.getRowCount(), 
+						khachHang.getMaKH(), 
+						khachHang.getTenKH(), 
+						khachHang.getNgaySinh(),
+						khachHang.isGioiTinh()==true? "Nam":"Nữ",
+						khachHang.getsDT(),
+						khachHang.getDiaChi()};
+				
+						modeltblKH.addRow(row);
+						
+    		}
+    	}
     private void loadTable() {
     	modeltblKH.setRowCount(0);
     	dsKH = daoKhachHang.getDanhsachKhachHang();
@@ -345,14 +371,14 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
  		txtTenKH.setText(khachHang.getTenKH());
  		((JTextField)jdcNgaySinh.getDateEditor().getUiComponent())
  		.setText(khachHang.getNgaySinh().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
- 		cbGioiTinh.setSelectedItem(khachHang.isGioiTinh()?"Nam":"Nữ");
+ 		cboGioiTinh.setSelectedItem(khachHang.isGioiTinh()?"Nam":"Nữ");
  		txtSDT.setText(khachHang.getsDT());
  		txtDiaChi.setText(khachHang.getDiaChi());
  	}
     public void setEditableForm(boolean st) {
 	
 		txtTenKH.setEditable(st);
-		cbGioiTinh.setEnabled(st);
+		cboGioiTinh.setEnabled(st);
 		txtSDT.setEditable(st);
 		jdcNgaySinh.setEnabled(st);
 		txtDiaChi.setEditable(st);
@@ -362,51 +388,33 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
     
  
     
-    private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
-    }                                         
-
-    private void txtSDTActionPerformed(java.awt.event.ActionEvent evt) {                                       
-    }                                      
-
-    private void lblDiaChiAncestorMoved(java.awt.event.HierarchyEvent evt) { 
-                                
-        // TODO add your handling code here:
-    }  
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
-    	
-    	themKH();
-    }
-    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        // TODO add your handling code here:
-    }    
-    public void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
-
-   		lamMoi();
-    }
-
-    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-
-    }                                          
-
-    private void cbGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }  
-    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        // TODO add your handling code here:
-    	Object o = evt.getSource();
-    	
-    	if (o.equals(btnXoa))
-    		xoaKH();
-    }  
     
+    private void timKiemKH() {
+    	FormTimKiemKhachHang formTimKiemKhachHang = new FormTimKiemKhachHang();
+    	int result = JOptionPane.showConfirmDialog(null, formTimKiemKhachHang, "Tìm kiếm khách hàng",
+				JOptionPane.OK_CANCEL_OPTION, 
+				JOptionPane.PLAIN_MESSAGE);
+		if (result == JOptionPane.OK_OPTION) {
+			String tenKH = "";
+			String sDT = "";
+			String ngaySinh = "";
+			tenKH = formTimKiemKhachHang.getTxtTenKH().getText();
+			sDT = formTimKiemKhachHang.getTxtSDT().getText();
+			ngaySinh = ((JTextField)jdcNgaySinh.getDateEditor().getUiComponent()).getText();
+			boolean gioiTinh = formTimKiemKhachHang.getJrdNam().isSelected();
+			
+			DAOKhachHang daoKhachHang = new DAOKhachHang();
+			ArrayList<KhachHang> dsKH =  daoKhachHang.timKiemKhachHang(tenKH, sDT, ngaySinh, gioiTinh);
+			
+			loadTable(dsKH);
+		}			
+    }
     private void lamMoi() {
     	txtMaKH.setText("");
 		txtTenKH.setText("");
 		txtSDT.setText("");
 		((JTextField)jdcNgaySinh.getDateEditor().getUiComponent()).setText("");
-		cbGioiTinh.setSelectedIndex(0);
+		cboGioiTinh.setSelectedIndex(0);
 		txtDiaChi.setText("");
 		
 		loadTable();
@@ -432,7 +440,7 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
     		if(validData()) {
 	    	String tenKH = txtTenKH.getText();
 	    	String ngaySinh = ((JTextField)jdcNgaySinh.getDateEditor().getUiComponent()).getText();
-	    	String gioiTinh = cbGioiTinh.getSelectedItem().toString();
+	    	String gioiTinh = cboGioiTinh.getSelectedItem().toString();
 	    	String sDT = txtSDT.getText();
 	    	String diaChi = txtDiaChi.getText();
 	    	
@@ -467,59 +475,62 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
     /**
      * 
      */
+
     public void xoaKH() {
-		int row = tblKhachHang.getSelectedRow();
-			if(row >= 0) {
-				String maKH = (String)tblKhachHang.getValueAt(row, 1).toString();
-				try {
-					if(daoKhachHang.xoa_KH(maKH)) {
-						JOptionPane.showMessageDialog(null, "Xóa thành công");
-						lamMoi();
-					}
-					else {
-						JOptionPane.showMessageDialog(null, "Xóa không thành công");
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+    	int row = tblKhachHang.getSelectedRow();
+    	if (row ==-1) {
+    		JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng cần xóa");
+    		return;
+    	}
+    	if (JOptionPane.showConfirmDialog(null,"Xác nhận xóa")==JOptionPane.YES_OPTION){
+    		try {
+				daoKhachHang.xoa_KH(tblKhachHang.getValueAt(row, 1).toString());
+				JOptionPane.showMessageDialog(this, "Xóa thành công");
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 			}
-				
+    		loadTable();
+    	}
+    }
+    public void capNhatKH() {
+	   String maKH = txtMaKH.getText();
+	   if(btnSua.getText().equals("Sửa")) {
+   		btnSua.setText("Xác nhận"); 
+   		btnLamMoi.setText("Hủy");
+	    	
+   		setEditableForm(true);
+   		btnThem.setEnabled(false);
+   		btnXoa.setEnabled(false);
+	  } else {
 		
-	}
-    
-    
-   public void capNhatKH() {
-	   int row = tblKhachHang.getSelectedRow();
-	   	String maKH = txtMaKH.getText();
+	
+	   
+	   	if(validData()) {
 	   	String tenKH = txtTenKH.getText();
 	   	String ngaySinh = ((JTextField)jdcNgaySinh.getDateEditor().getUiComponent()).getText();
-	   	String gioiTinh = cbGioiTinh.getSelectedItem().toString();
+	   	String gioiTinh = cboGioiTinh.getSelectedItem().toString();
 	   	String sDT = txtSDT.getText();
 	   	String diaChi = txtDiaChi.getText();
 	   	
 	   	KhachHang khachHang = new KhachHang(maKH, tenKH, sDT,
     			LocalDate.parse(ngaySinh, DateTimeFormatter.ofPattern("yyyy-MM-dd")), 
     			gioiTinh.equals("Nam")?true:false, diaChi);
-	   	
-	   	if(row >= 0) {
-	   		try {
-				if(daoKhachHang.capNhat(khachHang)) {
-					modeltblKH.setValueAt(txtMaKH.getText(), row, 1);
-					modeltblKH.setValueAt(txtTenKH.getText(), row, 2);
-					modeltblKH.setValueAt(txtSDT.getText(), row, 3);
-					//modeltblKH.setValueAt(, row, 4);
-					//modeltblKH.setValueAt(, row, 5);
-					modeltblKH.setValueAt(txtDiaChi.getText(), row, 6);
-					
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	   	} 
+	   	try {
+	   		daoKhachHang.capNhat(khachHang);
+    		loadTable();
+	
+	   	} catch (Exception e) {
+			// TODO: handle exception
+		}
+	   	btnSua.setText("Sửa");
+   		btnLamMoi.setText("Làm mới");
+    	btnThem.setEnabled(true);
+		btnXoa.setEnabled(true);
+		lamMoi(); 
+	   	}
+	  } 		
    }
-   
    private boolean validData() {
 	   
 	   String tenKH = txtTenKH.getText().trim();
@@ -527,12 +538,16 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
 	   String diaChi = txtDiaChi.getText().trim();
 	   String ngaySinh = ((JTextField)jdcNgaySinh.getDateEditor().getUiComponent()).getText();
 	   
-	   if(!(tenKH.length() > 0 && tenKH.matches("^[A-Z][a-z]+(\\s[A-Z][a-z]+)"))) {
+	   if(!(tenKH.length() > 0 && tenKH.matches("^[A-Z][a-z]+(\\s[A-Z][a-z]+)+"))) {
 		   JOptionPane.showMessageDialog(this, "Error: Tên khách hàng phải viết hoa chữ cái đầu mỗi từ và có ít nhất 2 từ !");
 		   txtTenKH.requestFocus();
 		   return false;
 	   }
-
+	   if(LocalDate.parse(ngaySinh, DateTimeFormatter.ofPattern("yyyy-MM-dd")).isAfter(LocalDate.now())) {
+		   JOptionPane.showMessageDialog(this, "Error:Ngày sinh không được sau ngày hiện tại !");
+		   jdcNgaySinh.requestFocus();
+		   return false;
+	   }
 	   if(!(sDT.length() > 0 && sDT.matches("[0]\\d{9}"))) {
 		   JOptionPane.showMessageDialog(this, "Error: SDT bắt đầu bằng 0 và có 10 chữ số");
 		   txtSDT.requestFocus();
@@ -543,17 +558,48 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
 		   txtDiaChi.requestFocus();
 		   return false;
 	   }
-	   if(LocalDate.parse(ngaySinh, DateTimeFormatter.ofPattern("yyyy-MM-dd")).isAfter(LocalDate.now())) {
-		   
-	   } 
 	return true;   
    }
-   
-   
-    
-  
+   private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {                                          
+       // TODO add your handling code here:
+   }                                         
 
+   private void txtSDTActionPerformed(java.awt.event.ActionEvent evt) {                                       
+   }                                      
 
+   private void lblDiaChiAncestorMoved(java.awt.event.HierarchyEvent evt) { 
+                               
+       // TODO add your handling code here:
+   }  
+   private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
+   	
+   	themKH();
+   }
+   private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       // TODO add your handling code here:
+   	capNhatKH();
+   }    
+   public void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
+
+  		lamMoi();
+   }
+
+   private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {                                           
+       // TODO add your handling code here:
+   	timKiemKH();
+
+   }                                          
+
+   private void cboGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {                                           
+       // TODO add your handling code here:
+   }  
+   private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       // TODO add your handling code here:
+   	Object o = evt.getSource();
+   	
+   	if (o.equals(btnXoa))
+   		xoaKH();
+   }  
     // Variables declaration - do not modify                     
     private javax.swing.JButton btnLHD;
     private javax.swing.JButton btnLamMoi;
@@ -562,7 +608,7 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.JComboBox<String> cbGioiTinh;
+    private javax.swing.JComboBox<String> cboGioiTinh;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDiaChi;
     private javax.swing.JLabel lblGioiTinh;
@@ -579,8 +625,8 @@ public class GUIQuanLyKhachHang extends javax.swing.JPanel  {
     private javax.swing.JTextField txtNgaySinh;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtTenKH;
-    private DefaultTableModel model;
-    private JTable tblModel;
+    
+    
     
     private DAOKhachHang daoKhachHang = new DAOKhachHang();
     private ArrayList<KhachHang> dsKH;

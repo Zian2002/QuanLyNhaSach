@@ -109,7 +109,7 @@ public class DAOHoaDon {
 				statement.setInt(4, chiTietHoaDon.getSoLuong());
 				statement.executeUpdate();
 				
-				daoSanPham.banSanPham(chiTietHoaDon.getSanPham().getMaSP(), chiTietHoaDon.getSoLuong());
+		//		daoSanPham.banSanPham(chiTietHoaDon.getSanPham().getMaSP(), chiTietHoaDon.getSoLuong());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

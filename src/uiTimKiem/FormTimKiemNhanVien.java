@@ -1,19 +1,64 @@
- 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package uiTimKiem;
+
+import javax.swing.text.JTextComponent;
+
+import org.jdesktop.swingx.JXRadioGroup;
 
 /**
  *
  * @author MSII
  */
-public class FormTimKiemNhanVien extends javax.swing.JFrame {
+public class FormTimKiemNhanVien extends javax.swing.JPanel {
+	
+    public com.toedter.calendar.JDateChooser getJdcNgaySinh() {
+		return jdcNgaySinh;
+	}
 
-    /**
+	public void setJdcNgaySinh(com.toedter.calendar.JDateChooser jdcNgaySinh) {
+		this.jdcNgaySinh = jdcNgaySinh;
+	}
+
+	public javax.swing.JRadioButton getJrdNam() {
+		return jrdNam;
+	}
+
+	public void setJrdNam(javax.swing.JRadioButton jrdNam) {
+		this.jrdNam = jrdNam;
+	}
+
+	public javax.swing.JRadioButton getJrdNu() {
+		return jrdNu;
+	}
+
+	public void setJrdNu(javax.swing.JRadioButton jrdNu) {
+		this.jrdNu = jrdNu;
+	}
+
+	public javax.swing.JTextField getTxtCCCD() {
+		return txtCCCD;
+	}
+
+	public void setTxtCCCD(javax.swing.JTextField txtCCCD) {
+		this.txtCCCD = txtCCCD;
+	}
+
+	public javax.swing.JTextField getTxtTenNV() {
+		return txtTenNV;
+	}
+
+	public void setTxtTenNV(javax.swing.JTextField txtTenNV) {
+		this.txtTenNV = txtTenNV;
+	}
+
+	/**
      * Creates new form GUITimKiemNhanVien
      */
     public FormTimKiemNhanVien() {
         initComponents();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -25,29 +70,18 @@ public class FormTimKiemNhanVien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        lblChucVu = new javax.swing.JLabel();
-        txtDiaChi = new javax.swing.JTextField();
-        txtChucVu = new javax.swing.JTextField();
         lblCCCD = new javax.swing.JLabel();
-        jdcNgayVaoLam = new com.toedter.calendar.JDateChooser();
         jrdNam = new javax.swing.JRadioButton();
         lblNgaySinh = new javax.swing.JLabel();
         jrdNu = new javax.swing.JRadioButton();
         txtTenNV = new javax.swing.JTextField();
         lblGioiTinh = new javax.swing.JLabel();
         txtCCCD = new javax.swing.JTextField();
-        lblDiaChi = new javax.swing.JLabel();
         lblTimKiemNV = new javax.swing.JLabel();
-        btnTimKiem = new javax.swing.JButton();
-        txtNgaySinh = new javax.swing.JTextField();
-        txtMaNV = new javax.swing.JTextField();
-        lblMaNV = new javax.swing.JLabel();
-        lblNgayVaoLam = new javax.swing.JLabel();
         lblTenNV = new javax.swing.JLabel();
+        jdcNgaySinh = new com.toedter.calendar.JDateChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblChucVu.setText("Chức vụ:");
+     
 
         lblCCCD.setText("CCCD/CMND:");
 
@@ -65,68 +99,36 @@ public class FormTimKiemNhanVien extends javax.swing.JFrame {
 
         lblGioiTinh.setText("Giới tính:");
 
-        lblDiaChi.setText("Địa chỉ:");
-
         lblTimKiemNV.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTimKiemNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTimKiemNV.setText("Tìm kiếm nhân viên");
 
-        btnTimKiem.setText("Tìm kiếm");
-        btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTimKiemActionPerformed(evt);
-            }
-        });
-
-        txtMaNV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaNVActionPerformed(evt);
-            }
-        });
-
-        lblMaNV.setText("Mã nhân viên:");
-
-        lblNgayVaoLam.setText("Ngày vào làm:");
-
         lblTenNV.setText("Tên nhân viên:");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(147, Short.MAX_VALUE)
                 .addComponent(lblTimKiemNV)
                 .addGap(136, 136, 136))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGioiTinh)
                     .addComponent(lblNgaySinh)
                     .addComponent(lblCCCD)
-                    .addComponent(lblTenNV)
-                    .addComponent(lblDiaChi)
-                    .addComponent(lblNgayVaoLam)
-                    .addComponent(lblMaNV)
-                    .addComponent(lblChucVu))
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNgaySinh)
-                    .addComponent(txtDiaChi)
-                    .addComponent(txtTenNV)
-                    .addComponent(txtCCCD)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(lblTenNV))
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtTenNV, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jrdNam)
                         .addGap(43, 43, 43)
-                        .addComponent(jrdNu)
-                        .addGap(0, 93, Short.MAX_VALUE))
-                    .addComponent(txtMaNV)
-                    .addComponent(txtChucVu)
-                    .addComponent(jdcNgayVaoLam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(73, 73, 73))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jrdNu))
+                    .addComponent(txtCCCD, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jdcNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,10 +138,6 @@ public class FormTimKiemNhanVien extends javax.swing.JFrame {
                 .addComponent(lblTimKiemNV)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMaNV)
-                    .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTenNV)
                     .addComponent(txtTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -147,41 +145,27 @@ public class FormTimKiemNhanVien extends javax.swing.JFrame {
                     .addComponent(lblCCCD)
                     .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNgaySinh)
-                    .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdcNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGioiTinh)
                     .addComponent(jrdNam)
                     .addComponent(jrdNu))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDiaChi)
-                    .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNgayVaoLam)
-                    .addComponent(jdcNgayVaoLam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblChucVu)
-                    .addComponent(txtChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        pack();
-    }// </editor-fold>                        
+        JXRadioGroup ggt = new JXRadioGroup();
+        ggt.add(jrdNam);
+        ggt.add(jrdNu);
+        jdcNgaySinh.setDateFormatString("yyyy-MM-dd");
+        ((JTextComponent)jdcNgaySinh.getDateEditor().getUiComponent()).setEditable(false);
+    }// </editor-fold>                       
 
     private void jrdNuActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
     }                                     
-
-    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
 
     private void txtMaNVActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
@@ -190,57 +174,20 @@ public class FormTimKiemNhanVien extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormTimKiemNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormTimKiemNhanVien().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton btnTimKiem;
-    private com.toedter.calendar.JDateChooser jdcNgayVaoLam;
+    private com.toedter.calendar.JDateChooser jdcNgaySinh;
     private javax.swing.JRadioButton jrdNam;
     private javax.swing.JRadioButton jrdNu;
     private javax.swing.JLabel lblCCCD;
-    private javax.swing.JLabel lblChucVu;
-    private javax.swing.JLabel lblDiaChi;
     private javax.swing.JLabel lblGioiTinh;
     private javax.swing.JLabel lblMaNV;
     private javax.swing.JLabel lblNgaySinh;
-    private javax.swing.JLabel lblNgayVaoLam;
     private javax.swing.JLabel lblTenNV;
     private javax.swing.JLabel lblTimKiemNV;
     private javax.swing.JTextField txtCCCD;
-    private javax.swing.JTextField txtChucVu;
-    private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtMaNV;
-    private javax.swing.JTextField txtNgaySinh;
     private javax.swing.JTextField txtTenNV;
     // End of variables declaration                   
 }
