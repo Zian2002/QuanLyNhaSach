@@ -397,6 +397,7 @@ public class DAOSanPham {
 		}
 	}*/
 
+<<<<<<< HEAD
 	public ArrayList<SanPham> timKiemSach(String maSach,String tenSach,String tenTG,String namXB,String maLoai){
 		ArrayList<SanPham> dsSanPham = new ArrayList<SanPham>();
 		
@@ -425,6 +426,17 @@ public class DAOSanPham {
 						new NhaXuatBan(rs.getInt(19), rs.getString(20)))
 				);
 			}
+=======
+	public void capNhatSoLuong(String maSP, int soLuong) {
+		try {
+			Connection con = ConnectDB.getConnection();
+			String sql = "update SanPham set soLuongCon = soLuongCon + ?\r\n"
+					+ "where maSP = ?";
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setInt(1, soLuong);
+			statement.setString(2, maSP);
+			statement.executeUpdate();
+>>>>>>> a8c379b654e86eb632cffd97b81da1fd5d8c3fbc
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

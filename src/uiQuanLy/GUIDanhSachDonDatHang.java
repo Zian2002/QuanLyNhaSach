@@ -400,10 +400,13 @@ public class GUIDanhSachDonDatHang extends javax.swing.JPanel {
 				int trangThai = donDatHang.getTrangThaiDonHang();
 				if (trangThai == 0) {
 					cboTrangThai.setSelectedIndex(0);
+					btnThanhToan.setEnabled(true);
 				}else if (trangThai == 1) {
 					cboTrangThai.setSelectedIndex(1);
+					btnThanhToan.setEnabled(false);
 				}else {
 					cboTrangThai.setSelectedIndex(2);
+					btnThanhToan.setEnabled(false);
 				}
 				
 				
